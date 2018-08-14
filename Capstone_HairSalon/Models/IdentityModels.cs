@@ -31,5 +31,7 @@ namespace Capstone_HairSalon.Models
             return new ApplicationDbContext();
         }
 
+        public DbSet<Admin> Admins { get; set; }
+        
     }
 }
