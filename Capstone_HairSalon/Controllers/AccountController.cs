@@ -174,7 +174,7 @@ namespace Capstone_HairSalon.Controllers
                     }
                     if (model.UserRole == "Admin")
                     {
-                        return RedirectToAction("Create", "Admin");
+                        return RedirectToAction("Create", "Admins");
                     }
                     return RedirectToAction("Index", "Home");
                 }

@@ -246,12 +246,21 @@
     <Compile Include="Migrations\201808141551173_no ForKey.Designer.cs">
       <DependentUpon>201808141551173_no ForKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808141557571_updated FK.cs" />
+    <Compile Include="Migrations\201808141557571_updated FK.Designer.cs">
+      <DependentUpon>201808141557571_updated FK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808141632123_services added.cs" />
+    <Compile Include="Migrations\201808141632123_services added.Designer.cs">
+      <DependentUpon>201808141632123_services added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Services.cs" />
     <Compile Include="Models\Stylist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -590,6 +599,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808141551173_no ForKey.resx">
       <DependentUpon>201808141551173_no ForKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808141557571_updated FK.resx">
+      <DependentUpon>201808141557571_updated FK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808141632123_services added.resx">
+      <DependentUpon>201808141632123_services added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
