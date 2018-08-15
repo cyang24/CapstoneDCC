@@ -28,7 +28,7 @@ namespace Capstone_HairSalon.Models
         [Display(Name = "Zip Code")]
         public int ZipCode { get; set; }
 
-        [Display(Name = "Rent Due")]
+        [Display(Name = "Rent Paid")]
         public bool RentDue { get; set; }
 
         [ForeignKey("User")]

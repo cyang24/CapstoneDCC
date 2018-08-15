@@ -36,6 +36,8 @@ namespace Capstone_HairSalon.Models
         public DbSet<Stylist> Stylists { get; set; }
 
         public DbSet<Services> Services { get; set; }
+
+        public System.Data.Entity.DbSet<Capstone_HairSalon.Models.Appointment> Appointments { get; set; }
         //public DbSet<Event> Events { get; set; }
     }
 }

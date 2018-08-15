@@ -7,112 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Capstone_HairSalon.Models;
-using Microsoft.AspNet.Identity;
 
 namespace Capstone_HairSalon.Controllers
 {
-    public class CustomersController : Controller
+    public class AppointmentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Customers
+        // GET: Appointments
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            return View(db.Appointments.ToList());
         }
 
-        // GET: Customers/Details/5
+        // GET: Appointments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Appointment appointment = db.Appointments.Find(id);
+            if (appointment == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(appointment);
         }
 
-        // GET: Customers/Create
+        // GET: Appointments/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: Appointments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Phone,Address,ZipCode")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,Name,PhoneNumber,Time,Timezone,CreatedAt")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
-                customer.UserId = User.Identity.GetUserId();
-                db.Customers.Add(customer);
+                db.Appointments.Add(appointment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-           
-            return View(customer);
+
+            return View(appointment);
         }
 
-        // GET: Customers/Edit/5
+        // GET: Appointments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Appointment appointment = db.Appointments.Find(id);
+            if (appointment == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(appointment);
         }
 
-        // POST: Customers/Edit/5
+        // POST: Appointments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Phone,Address,ZipCode,RentDue")] Customer customer)
+        public ActionResult Edit([Bind(Include = "Id,Name,PhoneNumber,Time,Timezone,CreatedAt")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
+                db.Entry(appointment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(customer);
+            return View(appointment);
         }
 
-        // GET: Customers/Delete/5
+        // GET: Appointments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Appointment appointment = db.Appointments.Find(id);
+            if (appointment == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(appointment);
         }
 
-        // POST: Customers/Delete/5
+        // POST: Appointments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.Customers.Find(id);
-            db.Customers.Remove(customer);
+            Appointment appointment = db.Appointments.Find(id);
+            db.Appointments.Remove(appointment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

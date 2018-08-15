@@ -34,6 +34,10 @@ namespace Capstone_HairSalon.Models
         [ForeignKey("User")]
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
+
+        [ForeignKey("Appointment")]
+        public int? AppointmentId { get; set; }
+        public Appointment Appointment { get; set; }
     }
     
 }

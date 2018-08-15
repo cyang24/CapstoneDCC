@@ -30,14 +30,14 @@ namespace Capstone_HairSalon.Controllers
         }
 
 
-        //[Authorize(Roles = "Stylist")]
+        [Authorize(Roles = "Stylist, Admin")]
         public ContentResult Data()
         {
             var apps = db.Events.ToList();
             return new SchedulerAjaxData(apps);
         }
 
-        //[Authorize(Roles = "Stylist")]
+        [Authorize(Roles = "Stylist, Admin")]
         public ContentResult Save(int? id, FormCollection actionValues)
         {
             var action = new DataAction(actionValues);
@@ -68,7 +68,7 @@ namespace Capstone_HairSalon.Controllers
             return (new AjaxSaveResponse(action));
         }
 
-        //[Authorize(Roles = "Stylist")]
+        [Authorize(Roles = "Stylist, Admin")]
         protected override void Dispose(bool disposing)
         {
             if (disposing)
