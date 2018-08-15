@@ -20,8 +20,7 @@ namespace Capstone_HairSalon.Controllers
             var scheduler = new DHXScheduler(this);
             scheduler.Skin = DHXScheduler.Skins.Flat;
 
-            scheduler.Config.hour_date = "%g:%i%a";
-            scheduler.Config.first_hour= 8;
+            scheduler.Config.first_hour = 8;
             scheduler.Config.last_hour = 20;
 
             scheduler.LoadData = true;
@@ -31,14 +30,14 @@ namespace Capstone_HairSalon.Controllers
         }
 
 
-        [Authorize(Roles = "Stylist")]
+        //[Authorize(Roles = "Stylist")]
         public ContentResult Data()
         {
             var apps = db.Events.ToList();
             return new SchedulerAjaxData(apps);
         }
 
-        [Authorize(Roles = "Stylist")]
+        //[Authorize(Roles = "Stylist")]
         public ContentResult Save(int? id, FormCollection actionValues)
         {
             var action = new DataAction(actionValues);
@@ -69,6 +68,7 @@ namespace Capstone_HairSalon.Controllers
             return (new AjaxSaveResponse(action));
         }
 
+        //[Authorize(Roles = "Stylist")]
         protected override void Dispose(bool disposing)
         {
             if (disposing)

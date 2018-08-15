@@ -10,7 +10,6 @@ namespace Capstone_HairSalon.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Capstone_HairSalon.Models.ApplicationDbContext";
         }
 
         protected override void Seed(Capstone_HairSalon.Models.ApplicationDbContext context)

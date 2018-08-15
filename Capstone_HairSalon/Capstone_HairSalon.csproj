@@ -208,69 +208,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808141306279_InitialCreate.cs" />
-    <Compile Include="Migrations\201808141306279_InitialCreate.Designer.cs">
-      <DependentUpon>201808141306279_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808141312055_init.cs" />
-    <Compile Include="Migrations\201808141312055_init.Designer.cs">
-      <DependentUpon>201808141312055_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808141424450_admin properties.cs" />
-    <Compile Include="Migrations\201808141424450_admin properties.Designer.cs">
-      <DependentUpon>201808141424450_admin properties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808141430139_admin dataset.cs" />
-    <Compile Include="Migrations\201808141430139_admin dataset.Designer.cs">
-      <DependentUpon>201808141430139_admin dataset.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808141434144_Admin FK added.cs" />
-    <Compile Include="Migrations\201808141434144_Admin FK added.Designer.cs">
-      <DependentUpon>201808141434144_Admin FK added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808141447318_no FK.cs" />
-    <Compile Include="Migrations\201808141447318_no FK.Designer.cs">
-      <DependentUpon>201808141447318_no FK.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808141451082_fk added.cs" />
-    <Compile Include="Migrations\201808141451082_fk added.Designer.cs">
-      <DependentUpon>201808141451082_fk added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808141543559_Styist Propeties Added.cs" />
-    <Compile Include="Migrations\201808141543559_Styist Propeties Added.Designer.cs">
-      <DependentUpon>201808141543559_Styist Propeties Added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808141547337_update phone error.cs" />
-    <Compile Include="Migrations\201808141547337_update phone error.Designer.cs">
-      <DependentUpon>201808141547337_update phone error.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808141551173_no ForKey.cs" />
-    <Compile Include="Migrations\201808141551173_no ForKey.Designer.cs">
-      <DependentUpon>201808141551173_no ForKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808141557571_updated FK.cs" />
-    <Compile Include="Migrations\201808141557571_updated FK.Designer.cs">
-      <DependentUpon>201808141557571_updated FK.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808141632123_services added.cs" />
-    <Compile Include="Migrations\201808141632123_services added.Designer.cs">
-      <DependentUpon>201808141632123_services added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808142027167_updated caledar.cs" />
-    <Compile Include="Migrations\201808142027167_updated caledar.Designer.cs">
-      <DependentUpon>201808142027167_updated caledar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808142052242_updaed db.cs" />
-    <Compile Include="Migrations\201808142052242_updaed db.Designer.cs">
-      <DependentUpon>201808142052242_updaed db.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808151242383_event updates.cs" />
-    <Compile Include="Migrations\201808151242383_event updates.Designer.cs">
-      <DependentUpon>201808151242383_event updates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808151250331_keys added to event.cs" />
-    <Compile Include="Migrations\201808151250331_keys added to event.Designer.cs">
-      <DependentUpon>201808151250331_keys added to event.cs</DependentUpon>
+    <Compile Include="Migrations\201808151652425_init.cs" />
+    <Compile Include="Migrations\201808151652425_init.Designer.cs">
+      <DependentUpon>201808151652425_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -596,53 +536,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808141306279_InitialCreate.resx">
-      <DependentUpon>201808141306279_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808141312055_init.resx">
-      <DependentUpon>201808141312055_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808141424450_admin properties.resx">
-      <DependentUpon>201808141424450_admin properties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808141430139_admin dataset.resx">
-      <DependentUpon>201808141430139_admin dataset.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808141434144_Admin FK added.resx">
-      <DependentUpon>201808141434144_Admin FK added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808141447318_no FK.resx">
-      <DependentUpon>201808141447318_no FK.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808141451082_fk added.resx">
-      <DependentUpon>201808141451082_fk added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808141543559_Styist Propeties Added.resx">
-      <DependentUpon>201808141543559_Styist Propeties Added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808141547337_update phone error.resx">
-      <DependentUpon>201808141547337_update phone error.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808141551173_no ForKey.resx">
-      <DependentUpon>201808141551173_no ForKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808141557571_updated FK.resx">
-      <DependentUpon>201808141557571_updated FK.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808141632123_services added.resx">
-      <DependentUpon>201808141632123_services added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808142027167_updated caledar.resx">
-      <DependentUpon>201808142027167_updated caledar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808142052242_updaed db.resx">
-      <DependentUpon>201808142052242_updaed db.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808151242383_event updates.resx">
-      <DependentUpon>201808151242383_event updates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808151250331_keys added to event.resx">
-      <DependentUpon>201808151250331_keys added to event.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808151652425_init.resx">
+      <DependentUpon>201808151652425_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
