@@ -29,7 +29,7 @@ namespace Capstone_HairSalon.Models
         public int ZipCode { get; set; }
 
         [Display(Name = "Service Total")]
-        public bool RentDue { get; set; }
+        public int ServiceTotal{ get; set; }
 
         [ForeignKey("User")]
         public string UserId { get; set; }

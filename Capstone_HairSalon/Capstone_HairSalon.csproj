@@ -45,8 +45,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DHTMLX, Version=3.4.6379.28343, Culture=neutral, PublicKeyToken=53f24791214eb8ac, processorArchitecture=MSIL">
-      <HintPath>..\packages\DHTMLX.Scheduler.NET.3.4.1.0\lib\DHTMLX.dll</HintPath>
+    <Reference Include="DHTMLX, Version=3.4.6717.29296, Culture=neutral, PublicKeyToken=53f24791214eb8ac, processorArchitecture=MSIL">
+      <HintPath>..\packages\DHTMLX.Scheduler.NET.3.4.2.0\lib\DHTMLX.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -199,9 +199,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\BasicSchedulerController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\StylistsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -254,12 +256,30 @@
     <Compile Include="Migrations\201808141632123_services added.Designer.cs">
       <DependentUpon>201808141632123_services added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808142027167_updated caledar.cs" />
+    <Compile Include="Migrations\201808142027167_updated caledar.Designer.cs">
+      <DependentUpon>201808142027167_updated caledar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808142052242_updaed db.cs" />
+    <Compile Include="Migrations\201808142052242_updaed db.Designer.cs">
+      <DependentUpon>201808142052242_updaed db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808151242383_event updates.cs" />
+    <Compile Include="Migrations\201808151242383_event updates.Designer.cs">
+      <DependentUpon>201808151242383_event updates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808151250331_keys added to event.cs" />
+    <Compile Include="Migrations\201808151250331_keys added to event.Designer.cs">
+      <DependentUpon>201808151250331_keys added to event.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SchedulerContext.cs" />
     <Compile Include="Models\Services.cs" />
     <Compile Include="Models\Stylist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -270,8 +290,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\dhtmlxScheduler\dhtmlxscheduler-responsive-classic.css" />
-    <Content Include="Content\dhtmlxScheduler\dhtmlxscheduler-responsive.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -282,7 +300,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler-responsive.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_classic.css" />
@@ -552,6 +569,15 @@
     <Content Include="Views\Stylists\Details.cshtml" />
     <Content Include="Views\Stylists\Edit.cshtml" />
     <Content Include="Views\Stylists\Index.cshtml" />
+    <Content Include="Views\Services\Create.cshtml" />
+    <Content Include="Views\Services\Delete.cshtml" />
+    <Content Include="Views\Services\Details.cshtml" />
+    <Content Include="Views\Services\Edit.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Shared\CustomerView.cshtml" />
+    <Content Include="Views\Shared\ManagerView.cshtml" />
+    <Content Include="Views\Shared\StylistView.cshtml" />
+    <Content Include="Views\BasicScheduler\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -605,6 +631,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808141632123_services added.resx">
       <DependentUpon>201808141632123_services added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808142027167_updated caledar.resx">
+      <DependentUpon>201808142027167_updated caledar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808142052242_updaed db.resx">
+      <DependentUpon>201808142052242_updaed db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151242383_event updates.resx">
+      <DependentUpon>201808151242383_event updates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151250331_keys added to event.resx">
+      <DependentUpon>201808151250331_keys added to event.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
