@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,49 +11,54 @@ using DHTMLX.Scheduler.Data;
 
 namespace Capstone_HairSalon.Controllers
 {
+    
     public class BasicSchedulerController : Controller
     {
+        private SchedulerContext db = new SchedulerContext();
         public ActionResult Index()
         {
-            var sched = new DHXScheduler(this);
-            sched.Skin = DHXScheduler.Skins.Terrace;
-            sched.LoadData = true;
-            sched.EnableDataprocessor = true;
-            sched.InitialDate = new DateTime(2018, 8, 16);
-            return View(sched);
+            var scheduler = new DHXScheduler(this);
+            scheduler.Skin = DHXScheduler.Skins.Flat;
+
+            scheduler.Config.hour_date = "%g:%i%a";
+            scheduler.Config.first_hour= 8;
+            scheduler.Config.last_hour = 20;
+
+            scheduler.LoadData = true;
+            scheduler.EnableDataprocessor = true;
+
+            return View(scheduler);
         }
 
+
+        [Authorize(Roles = "Stylist")]
         public ContentResult Data()
-        {  
-            return (new SchedulerAjaxData(
-                new SchedulerContext().Events
-                .Select(e => new { e.Id, e.EventText, e.Start_date, e.End_date })
-                )
-                );
+        {
+            var apps = db.Events.ToList();
+            return new SchedulerAjaxData(apps);
         }
 
+        [Authorize(Roles = "Stylist")]
         public ContentResult Save(int? id, FormCollection actionValues)
         {
             var action = new DataAction(actionValues);
-            var changedEvent = DHXEventsHelper.Bind<Event>(actionValues);
-            var entities = new SchedulerContext();
+
             try
             {
+                var changedEvent = DHXEventsHelper.Bind<Event>(actionValues);
                 switch (action.Type)
                 {
                     case DataActionTypes.Insert:
-                        entities.Events.Add(changedEvent);
+                        db.Events.Add(changedEvent);
                         break;
                     case DataActionTypes.Delete:
-                        changedEvent = entities.Events.FirstOrDefault(ev => ev.Id == action.SourceId);
-                        entities.Events.Remove(changedEvent);
+                        db.Entry(changedEvent).State = EntityState.Deleted;
                         break;
-                    default:// "update"
-                        var target = entities.Events.Single(e => e.Id == changedEvent.Id);
-                        DHXEventsHelper.Update(target, changedEvent, new List<string> { "id" });
+                    default:// "update"  
+                        db.Entry(changedEvent).State = EntityState.Modified;
                         break;
                 }
-                entities.SaveChanges();
+                db.SaveChanges();
                 action.TargetId = changedEvent.Id;
             }
             catch (Exception a)
@@ -61,6 +67,15 @@ namespace Capstone_HairSalon.Controllers
             }
 
             return (new AjaxSaveResponse(action));
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
