@@ -7,13 +7,13 @@ namespace Capstone_HairSalon.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class appointmentview : IMigrationMetadata
+    public sealed partial class stylistsId : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(appointmentview));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(stylistsId));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808152026429_appointment view"; }
+            get { return "201808161621005_stylistsId"; }
         }
         
         string IMigrationMetadata.Source

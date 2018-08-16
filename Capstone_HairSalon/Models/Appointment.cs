@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -18,19 +19,21 @@ namespace Capstone_HairSalon.Models
             public string PhoneNumber { get; set; }
 
             [Required]
-            [Display(Name = "Appointment Time")]
-            public DateTime Time { get; set; }
+            [Display(Name = "Appointment Date")]
+            public string Time { get; set; }
 
-            //[Required]
-            //[Display(Name = "Appointment Day")]
-            //public string Day { get; set; }
+            
+            [ForeignKey("Stylist")]
+            [Display(Name = "Preferred Stylists")]
+            public int? StylistId { get; set; }
+            public Stylist Stylist { get; set; }
+            public IEnumerable<Stylist> Stylists { get; set; }
 
-        //[Required]
-        //public string Timezone { get; set; }
 
-        //[Display(Name = "Created at")]
-        //public DateTime CreatedAt { get; set; }
+            [Required]
+            [Display(Name = "Preferred Time")]
+            public string TimeRequest { get; set; }
 
-        public static int ReminderTime = 1440;
+            //public static int ReminderTime = 1440;
     }
 }

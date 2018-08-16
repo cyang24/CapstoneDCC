@@ -38,7 +38,13 @@ namespace Capstone_HairSalon.Controllers
         // GET: Appointments/Create
         public ActionResult Create()
         {
-            return View();
+            var stylists = db.Stylists.ToList();
+            Appointment appointment = new Appointment()
+            {
+                Stylists = stylists
+            };
+            return View(appointment);
+
         }
 
         // POST: Appointments/Create
@@ -46,7 +52,7 @@ namespace Capstone_HairSalon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,PhoneNumber,Time,Timezone,CreatedAt")] Appointment appointment)
+        public ActionResult Create([Bind(Include = "Id,Name,PhoneNumber,Time,Timezone,TimeRequest,StylistId")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +72,7 @@ namespace Capstone_HairSalon.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Appointment appointment = db.Appointments.Find(id);
+            appointment.Stylists = db.Stylists.ToList();
             if (appointment == null)
             {
                 return HttpNotFound();
@@ -78,7 +85,7 @@ namespace Capstone_HairSalon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,PhoneNumber,Time,Timezone,CreatedAt")] Appointment appointment)
+        public ActionResult Edit([Bind(Include = "Id,Name,PhoneNumber,Time,Timezone,TimeRequest")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {

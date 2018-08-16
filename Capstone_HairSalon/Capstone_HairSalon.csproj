@@ -212,7 +212,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
-    <Compile Include="Controllers\Appointments1Controller.cs" />
     <Compile Include="Controllers\AppointmentsController.cs" />
     <Compile Include="Controllers\BasicSchedulerController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
@@ -227,21 +226,13 @@
     <Compile Include="Migrations\201808151652425_init.Designer.cs">
       <DependentUpon>201808151652425_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808151954032_appointments.cs" />
-    <Compile Include="Migrations\201808151954032_appointments.Designer.cs">
-      <DependentUpon>201808151954032_appointments.cs</DependentUpon>
+    <Compile Include="Migrations\201808161507563_notRequired.cs" />
+    <Compile Include="Migrations\201808161507563_notRequired.Designer.cs">
+      <DependentUpon>201808161507563_notRequired.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808152001215_appointmets adde.cs" />
-    <Compile Include="Migrations\201808152001215_appointmets adde.Designer.cs">
-      <DependentUpon>201808152001215_appointmets adde.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808152026429_appointment view.cs" />
-    <Compile Include="Migrations\201808152026429_appointment view.Designer.cs">
-      <DependentUpon>201808152026429_appointment view.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808152054408_appointmentdated.cs" />
-    <Compile Include="Migrations\201808152054408_appointmentdated.Designer.cs">
-      <DependentUpon>201808152054408_appointmentdated.cs</DependentUpon>
+    <Compile Include="Migrations\201808161621005_stylistsId.cs" />
+    <Compile Include="Migrations\201808161621005_stylistsId.Designer.cs">
+      <DependentUpon>201808161621005_stylistsId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -555,6 +546,11 @@
     <Content Include="Views\Appointments\Details.cshtml" />
     <Content Include="Views\Appointments\Edit.cshtml" />
     <Content Include="Views\Appointments\Index.cshtml" />
+    <Content Include="Views\Days\Create.cshtml" />
+    <Content Include="Views\Days\Delete.cshtml" />
+    <Content Include="Views\Days\Details.cshtml" />
+    <Content Include="Views\Days\Edit.cshtml" />
+    <Content Include="Views\Days\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -576,17 +572,11 @@
     <EmbeddedResource Include="Migrations\201808151652425_init.resx">
       <DependentUpon>201808151652425_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808151954032_appointments.resx">
-      <DependentUpon>201808151954032_appointments.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808161507563_notRequired.resx">
+      <DependentUpon>201808161507563_notRequired.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808152001215_appointmets adde.resx">
-      <DependentUpon>201808152001215_appointmets adde.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808152026429_appointment view.resx">
-      <DependentUpon>201808152026429_appointment view.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808152054408_appointmentdated.resx">
-      <DependentUpon>201808152054408_appointmentdated.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808161621005_stylistsId.resx">
+      <DependentUpon>201808161621005_stylistsId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

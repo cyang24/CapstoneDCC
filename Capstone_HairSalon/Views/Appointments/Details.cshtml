@@ -35,11 +35,18 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CreatedAt)
+            @Html.DisplayNameFor(model => model.StylistId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CreatedAt)
+            @Html.DisplayFor(model => model.Stylist.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Stylist.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeRequest)
         </dd>
 
     </dl>
