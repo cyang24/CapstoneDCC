@@ -15,8 +15,9 @@ namespace Capstone_HairSalon.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Appointments
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
+            //return View(db.Appointments.Include(p => p.Stylist).Where(m => m.Id == id).ToList());
             return View(db.Appointments.ToList());
         }
 
@@ -27,7 +28,7 @@ namespace Capstone_HairSalon.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Appointment appointment = db.Appointments.Find(id);
+            Appointment appointment = db.Appointments.Include(p => p.Stylist).Where(m => m.Id == id).FirstOrDefault();
             if (appointment == null)
             {
                 return HttpNotFound();
@@ -52,7 +53,7 @@ namespace Capstone_HairSalon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,PhoneNumber,Time,Timezone,TimeRequest,StylistId")] Appointment appointment)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Date,StylistId,TimeRequest")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +86,7 @@ namespace Capstone_HairSalon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,PhoneNumber,Time,Timezone,TimeRequest")] Appointment appointment)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Date,StylistId,TimeRequest")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {

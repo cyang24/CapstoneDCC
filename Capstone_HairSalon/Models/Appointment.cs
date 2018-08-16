@@ -13,18 +13,20 @@ namespace Capstone_HairSalon.Models
             public int Id { get; set; }
 
             [Required]
-            public string Name { get; set; }
+            public string FirstName { get; set; }
+            [Required]
+            public string LastName { get; set; }
 
             [Required, Phone, Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
 
             [Required]
             [Display(Name = "Appointment Date")]
-            public string Time { get; set; }
+            public string Date { get; set; }
 
             
             [ForeignKey("Stylist")]
-            [Display(Name = "Preferred Stylists")]
+            [Display(Name = "Preferred Stylist")]
             public int? StylistId { get; set; }
             public Stylist Stylist { get; set; }
             public IEnumerable<Stylist> Stylists { get; set; }

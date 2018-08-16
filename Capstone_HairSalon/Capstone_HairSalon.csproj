@@ -234,6 +234,18 @@
     <Compile Include="Migrations\201808161621005_stylistsId.Designer.cs">
       <DependentUpon>201808161621005_stylistsId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808161821491_updated.cs" />
+    <Compile Include="Migrations\201808161821491_updated.Designer.cs">
+      <DependentUpon>201808161821491_updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808161848213_dateUpdated.cs" />
+    <Compile Include="Migrations\201808161848213_dateUpdated.Designer.cs">
+      <DependentUpon>201808161848213_dateUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808161855337_udatedForum.cs" />
+    <Compile Include="Migrations\201808161855337_udatedForum.Designer.cs">
+      <DependentUpon>201808161855337_udatedForum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -577,6 +589,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808161621005_stylistsId.resx">
       <DependentUpon>201808161621005_stylistsId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161821491_updated.resx">
+      <DependentUpon>201808161821491_updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161848213_dateUpdated.resx">
+      <DependentUpon>201808161848213_dateUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161855337_udatedForum.resx">
+      <DependentUpon>201808161855337_udatedForum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
