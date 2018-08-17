@@ -23,8 +23,8 @@ namespace Capstone_HairSalon
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/simplex-bootstrap.min.css",
+                      "~/Content/site.css", "~/Content/custom.css"));
         }
     }
 }
