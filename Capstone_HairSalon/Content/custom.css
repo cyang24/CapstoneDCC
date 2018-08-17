@@ -1,6 +1,10 @@
 ﻿body {
 }
 
+a {
+  color: #181A2A;
+}
+
 
 .hero-image {
     margin-top: 10px;
@@ -11,35 +15,38 @@
     position: relative
 }
 
-.landing-image {
-    margin: 0 auto;
-    width: 100%;
-    height: 400px;
-    background: black url('adult-beach-beautiful-415484.jpg') no-repeat center 75%;
-    background-size: cover;
-    position: relative
+.landing_img_circle {
+    display: block;
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #8E8C84;
 }
 
+.landing_img_circle:hover > .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000;
+    opacity: 0.5;
+    border-radius: 30px;
+}
+
+
 .bg-Img1, .bg-Img2, .bg-Img3 {
-    /* The image used */
-    /*background-image: url("adult-beach-beautiful-415484.jpg");*/
-    /* Set a specific height */
-    /*height: 500px;*/
-    /* Create the parallax scrolling effect */
-    /*background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;*/
     position: relative;
-    opacity: 0.65;
+    opacity: 0.90;
     background-attachment: fixed;
-    background-position: center;
+    background-position: center 50%;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .bg-Img1 {
-    background-image: url("adult-beach-beautiful-415484.jpg");
+    background-image: url("adult-beautiful-business-324030.jpg");
     height:500px;
 }
 .bg-Img2 {
@@ -48,7 +55,7 @@
 }
 
 .bg-Img3 {
-    background-image: url("adult-beautiful-business-324030.jpg");
+    background-image: url("beautiful-body-casual-594365.jpg");
     height:250px;
 }
 
@@ -63,11 +70,12 @@
 }
 
 .caption span.border {
-    background-color: #111;
+    background-color: none;
     color: #fff;
-    padding: 18px;
-    font-size: 25px;
+    padding: 20px;
+    font-size: 30px;
     letter-spacing: 10px;
+        
 }
 
 .parallax-text {

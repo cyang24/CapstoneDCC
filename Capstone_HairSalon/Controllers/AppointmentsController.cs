@@ -17,6 +17,7 @@ namespace Capstone_HairSalon.Controllers
         // GET: Appointments
         public ActionResult Index(int? id)
         {
+
             //return View(db.Appointments.Include(p => p.Stylist).Where(m => m.Id == id).ToList());
             return View(db.Appointments.ToList());
         }
