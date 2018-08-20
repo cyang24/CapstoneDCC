@@ -3,7 +3,7 @@ namespace Capstone_HairSalon.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class services : DbMigration
+    public partial class updateappointents : DbMigration
     {
         public override void Up()
         {

@@ -254,9 +254,9 @@
     <Compile Include="Migrations\201808161855337_udatedForum.Designer.cs">
       <DependentUpon>201808161855337_udatedForum.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808201841253_keyswap.cs" />
-    <Compile Include="Migrations\201808201841253_keyswap.Designer.cs">
-      <DependentUpon>201808201841253_keyswap.cs</DependentUpon>
+    <Compile Include="Migrations\201808202026376_updateappointents.cs" />
+    <Compile Include="Migrations\201808202026376_updateappointents.Designer.cs">
+      <DependentUpon>201808202026376_updateappointents.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -662,8 +662,8 @@
     <EmbeddedResource Include="Migrations\201808201350184_boolean add cutomers.resx">
       <DependentUpon>201808201350184_boolean add cutomers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808201841253_keyswap.resx">
-      <DependentUpon>201808201841253_keyswap.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808202026376_updateappointents.resx">
+      <DependentUpon>201808202026376_updateappointents.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

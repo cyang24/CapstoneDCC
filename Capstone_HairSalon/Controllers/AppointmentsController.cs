@@ -30,7 +30,7 @@ namespace Capstone_HairSalon.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Appointment appointment = db.Appointments.Include(p => p.Stylist).Where(m => m.Id == id).FirstOrDefault();
+            Appointment appointment = db.Appointments.Include(p => p.Stylist).Include(s => s.Service).Where(m => m.Id == id).FirstOrDefault();
             if (appointment == null)
             {
                 return HttpNotFound();
@@ -55,7 +55,7 @@ namespace Capstone_HairSalon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Date,StylistId,TimeRequest,Accept_Terms")] Appointment appointment)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Date,StylistId,ServiceId,TimeRequest,Accept_Terms")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
