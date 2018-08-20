@@ -34,5 +34,9 @@ namespace Capstone_HairSalon.Models
         [ForeignKey("User")]
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
+
+        //[ForeignKey("Schedular")]
+        //public int ScheduleId { get; set; }
+        //public virtual Event Schedular { get; set; }
     }
 }

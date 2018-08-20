@@ -221,6 +221,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\StylistsController.cs" />
+    <Compile Include="Controllers\TextAPIsController.cs" />
+    <Compile Include="Models\TextAPI.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -277,6 +279,14 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bun-girl-hairs-9634.jpg" />
     <Content Include="Content\custom.css" />
+    <Content Include="Content\shutterstock_1033157947.jpg" />
+    <Content Include="Content\shutterstock_144022057.jpg" />
+    <Content Include="Content\shutterstock_220564633.jpg" />
+    <Content Include="Content\shutterstock_295555664.jpg" />
+    <Content Include="Content\shutterstock_485071654.jpg" />
+    <Content Include="Content\shutterstock_639921919.jpg" />
+    <Content Include="Content\shutterstock_670969639.jpg" />
+    <Content Include="Content\shutterstock_730048504.jpg" />
     <Content Include="Content\simplex-bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

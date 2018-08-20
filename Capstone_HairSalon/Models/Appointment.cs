@@ -36,6 +36,10 @@ namespace Capstone_HairSalon.Models
             [Display(Name = "Preferred Time")]
             public string TimeRequest { get; set; }
 
+            public bool ConfirmAppointment { get; set; }
+
+            public bool DenyAppointment { get; set; }
+
             //public static int ReminderTime = 1440;
     }
 }

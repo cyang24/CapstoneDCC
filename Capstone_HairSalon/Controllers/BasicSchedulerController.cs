@@ -8,6 +8,8 @@ using Capstone_HairSalon.Models;
 using DHTMLX.Common;
 using DHTMLX.Scheduler;
 using DHTMLX.Scheduler.Data;
+using System.Data;
+
 
 namespace Capstone_HairSalon.Controllers
 {
@@ -60,7 +62,7 @@ namespace Capstone_HairSalon.Controllers
                 db.SaveChanges();
                 action.TargetId = changedEvent.Id;
             }
-            catch (Exception a)
+            catch (Exception)
             {
                 action.Type = DataActionTypes.Error;
             }
