@@ -222,6 +222,10 @@
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\StylistsController.cs" />
     <Compile Include="Controllers\TextAPIsController.cs" />
+    <Compile Include="Migrations\201808201350184_boolean add cutomers.cs" />
+    <Compile Include="Migrations\201808201350184_boolean add cutomers.Designer.cs">
+      <DependentUpon>201808201350184_boolean add cutomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\TextAPI.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -649,6 +653,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808161855337_udatedForum.resx">
       <DependentUpon>201808161855337_udatedForum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808201350184_boolean add cutomers.resx">
+      <DependentUpon>201808201350184_boolean add cutomers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
