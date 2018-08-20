@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Capstone_HairSalon.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Capstone_HairSalon.Controllers
 {
@@ -87,14 +88,18 @@ namespace Capstone_HairSalon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Date,StylistId,TimeRequest")] Appointment appointment)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Date,StylistId,TimeRequest,ConfirmAppointment,DenyAppointment")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(appointment).State = EntityState.Modified;
+
                 db.SaveChanges();
+                TextAPIsController textAPIsController = new TextAPIsController();
+                textAPIsController.SendText(appointment);
                 return RedirectToAction("Index");
             }
+
             return View(appointment);
         }
 

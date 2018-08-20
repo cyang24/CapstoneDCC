@@ -12,13 +12,19 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.FirstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.FirstName)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.PhoneNumber)
         </dt>
@@ -28,11 +34,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Time)
+            @Html.DisplayNameFor(model => model.Date)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Time)
+            @Html.DisplayFor(model => model.Date)
         </dd>
 
         <dt>
@@ -41,6 +47,18 @@
 
         <dd>
             @Html.DisplayFor(model => model.TimeRequest)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ConfirmAppointment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ConfirmAppointment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DenyAppointment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DenyAppointment)
         </dd>
 
     </dl>

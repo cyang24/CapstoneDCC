@@ -226,7 +226,6 @@
     <Compile Include="Migrations\201808201350184_boolean add cutomers.Designer.cs">
       <DependentUpon>201808201350184_boolean add cutomers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\TextAPI.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
