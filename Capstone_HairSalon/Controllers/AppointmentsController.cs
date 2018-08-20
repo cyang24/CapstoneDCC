@@ -55,12 +55,14 @@ namespace Capstone_HairSalon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Date,StylistId,TimeRequest")] Appointment appointment)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Date,StylistId,TimeRequest,Accept_Terms")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
                 db.Appointments.Add(appointment);
                 db.SaveChanges();
+                TextAPIsController textAPIsController = new TextAPIsController();
+                textAPIsController.SendText(appointment);
                 return RedirectToAction("Index");
             }
 
