@@ -19,7 +19,7 @@ namespace Capstone_HairSalon.Controllers
         {
             return View(db.Services.ToList());
         }
-
+        [Authorize(Roles = "Stylist, Admin")]
         // GET: Services/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,6 +35,7 @@ namespace Capstone_HairSalon.Controllers
             return View(services);
         }
 
+        [Authorize(Roles = "Stylist, Admin")]
         // GET: Services/Create
         public ActionResult Create()
         {
@@ -57,7 +58,7 @@ namespace Capstone_HairSalon.Controllers
 
             return View(services);
         }
-
+        [Authorize(Roles = "Stylist, Admin")]
         // GET: Services/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -88,7 +89,7 @@ namespace Capstone_HairSalon.Controllers
             }
             return View(services);
         }
-
+        [Authorize(Roles = "Stylist, Admin")]
         // GET: Services/Delete/5
         public ActionResult Delete(int? id)
         {

@@ -86,6 +86,8 @@ namespace Capstone_HairSalon.Controllers
             {
                 db.Entry(stylist).State = EntityState.Modified;
                 db.SaveChanges();
+                TextAPIsManager textAPIsManager = new TextAPIsManager();
+                textAPIsManager.SendText(stylist);
                 return RedirectToAction("Index");
             }
             return View(stylist);

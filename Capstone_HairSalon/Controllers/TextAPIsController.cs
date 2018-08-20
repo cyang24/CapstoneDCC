@@ -84,22 +84,6 @@ namespace Capstone_HairSalon.Controllers
                 Console.WriteLine(message.Sid);
 
             }
-            else if (appointment.DenyAppointment == true)
-            {
-                const string accountSid = "AC8f17440345184e555b817781af4d94cb";
-                const string authToken = "66843904e1d2f4f6fb98a8c6b7173080";
-
-                TwilioClient.Init(accountSid, authToken);
-
-                var message = MessageResource.Create(
-                    body: "Your requested appointment time is unavailable. Please select another choice. We apologize for any inconvience.",
-                    from: new Twilio.Types.PhoneNumber("+19203755309"),
-                    to: new Twilio.Types.PhoneNumber("+19202424833")
-                );
-
-                Console.WriteLine(message.Sid);
-
-            }
         }
         protected override void Dispose(bool disposing)
         {

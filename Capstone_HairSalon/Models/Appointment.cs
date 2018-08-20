@@ -31,6 +31,12 @@ namespace Capstone_HairSalon.Models
             public Stylist Stylist { get; set; }
             public IEnumerable<Stylist> Stylists { get; set; }
 
+            [ForeignKey("Service")]
+            [Display(Name = "Type of Service")]
+            public int? ServiceId { get; set; }
+            public Services Service{ get; set; }
+            public IEnumerable<Services> Services { get; set; }
+
 
             [Required]
             [Display(Name = "Preferred Time")]

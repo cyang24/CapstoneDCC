@@ -222,6 +222,7 @@
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\StylistsController.cs" />
     <Compile Include="Controllers\TextAPIsController.cs" />
+    <Compile Include="Controllers\TextAPIsManager.cs" />
     <Compile Include="Migrations\201808201350184_boolean add cutomers.cs" />
     <Compile Include="Migrations\201808201350184_boolean add cutomers.Designer.cs">
       <DependentUpon>201808201350184_boolean add cutomers.cs</DependentUpon>
@@ -632,6 +633,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\TextAPIsManager\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
