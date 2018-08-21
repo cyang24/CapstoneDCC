@@ -24,5 +24,9 @@ namespace Capstone_HairSalon.Models
 
         [DHXJson(Alias = "end_date")]
         public DateTime End_date { get; set; }
+
+        //public bool @readonly { get; set; }
+
+
     }
 }

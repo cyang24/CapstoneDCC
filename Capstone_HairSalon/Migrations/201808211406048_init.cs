@@ -80,31 +80,26 @@ namespace Capstone_HairSalon.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
-                "dbo.Customers",
+                "dbo.Appointments",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        Phone = c.String(),
-                        Address = c.String(),
-                        ZipCode = c.Int(nullable: false),
-                        ServiceTotal = c.Int(nullable: false),
-                        UserId = c.String(maxLength: 128),
+                        FirstName = c.String(nullable: false),
+                        LastName = c.String(nullable: false),
+                        PhoneNumber = c.String(nullable: false),
+                        Date = c.String(nullable: false),
+                        StylistId = c.Int(),
+                        ServiceId = c.Int(),
+                        TimeRequest = c.String(nullable: false),
+                        ConfirmAppointment = c.Boolean(nullable: false),
+                        DenyAppointment = c.Boolean(nullable: false),
+                        Accept_Terms = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
-                .Index(t => t.UserId);
-            
-            CreateTable(
-                "dbo.AspNetRoles",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false, maxLength: 256),
-                    })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+                .ForeignKey("dbo.Services", t => t.ServiceId)
+                .ForeignKey("dbo.Stylists", t => t.StylistId)
+                .Index(t => t.StylistId)
+                .Index(t => t.ServiceId);
             
             CreateTable(
                 "dbo.Services",
@@ -133,30 +128,78 @@ namespace Capstone_HairSalon.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId);
             
+            CreateTable(
+                "dbo.Customers",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                        Phone = c.String(),
+                        Address = c.String(),
+                        ZipCode = c.Int(nullable: false),
+                        ServiceTotal = c.Int(nullable: false),
+                        UserId = c.String(maxLength: 128),
+                        AppointmentId = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Appointments", t => t.AppointmentId)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.UserId)
+                .Index(t => t.AppointmentId);
+            
+            CreateTable(
+                "dbo.Inventories",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        ItemCount = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 256),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Stylists", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Customers", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Customers", "AppointmentId", "dbo.Appointments");
+            DropForeignKey("dbo.Appointments", "StylistId", "dbo.Stylists");
+            DropForeignKey("dbo.Stylists", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Appointments", "ServiceId", "dbo.Services");
             DropForeignKey("dbo.Admins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropIndex("dbo.Stylists", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Customers", new[] { "AppointmentId" });
             DropIndex("dbo.Customers", new[] { "UserId" });
+            DropIndex("dbo.Stylists", new[] { "UserId" });
+            DropIndex("dbo.Appointments", new[] { "ServiceId" });
+            DropIndex("dbo.Appointments", new[] { "StylistId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Admins", new[] { "UserId" });
+            DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Inventories");
+            DropTable("dbo.Customers");
             DropTable("dbo.Stylists");
             DropTable("dbo.Services");
-            DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Customers");
+            DropTable("dbo.Appointments");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");

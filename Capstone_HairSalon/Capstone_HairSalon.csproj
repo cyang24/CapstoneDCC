@@ -222,46 +222,23 @@
     <Compile Include="Controllers\BasicSchedulerController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventoriesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\StripesController.cs" />
     <Compile Include="Controllers\StylistsController.cs" />
     <Compile Include="Controllers\TextAPIsController.cs" />
     <Compile Include="Controllers\TextAPIsManager.cs" />
-    <Compile Include="Migrations\201808201350184_boolean add cutomers.cs" />
-    <Compile Include="Migrations\201808201350184_boolean add cutomers.Designer.cs">
-      <DependentUpon>201808201350184_boolean add cutomers.cs</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808151652425_init.cs" />
-    <Compile Include="Migrations\201808151652425_init.Designer.cs">
-      <DependentUpon>201808151652425_init.cs</DependentUpon>
+    <Compile Include="Migrations\201808211406048_init.cs" />
+    <Compile Include="Migrations\201808211406048_init.Designer.cs">
+      <DependentUpon>201808211406048_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808161507563_notRequired.cs" />
-    <Compile Include="Migrations\201808161507563_notRequired.Designer.cs">
-      <DependentUpon>201808161507563_notRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808161621005_stylistsId.cs" />
-    <Compile Include="Migrations\201808161621005_stylistsId.Designer.cs">
-      <DependentUpon>201808161621005_stylistsId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808161821491_updated.cs" />
-    <Compile Include="Migrations\201808161821491_updated.Designer.cs">
-      <DependentUpon>201808161821491_updated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808161848213_dateUpdated.cs" />
-    <Compile Include="Migrations\201808161848213_dateUpdated.Designer.cs">
-      <DependentUpon>201808161848213_dateUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808161855337_udatedForum.cs" />
-    <Compile Include="Migrations\201808161855337_udatedForum.Designer.cs">
-      <DependentUpon>201808161855337_udatedForum.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808202026376_updateappointents.cs" />
-    <Compile Include="Migrations\201808202026376_updateappointents.Designer.cs">
-      <DependentUpon>201808202026376_updateappointents.cs</DependentUpon>
+    <Compile Include="Migrations\201808211416214_Events.cs" />
+    <Compile Include="Migrations\201808211416214_Events.Designer.cs">
+      <DependentUpon>201808211416214_Events.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -270,6 +247,7 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SchedulerContext.cs" />
     <Compile Include="Models\Services.cs" />
@@ -638,6 +616,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Inventories\Create.cshtml" />
+    <Content Include="Views\Inventories\Delete.cshtml" />
+    <Content Include="Views\Inventories\Details.cshtml" />
+    <Content Include="Views\Inventories\Edit.cshtml" />
+    <Content Include="Views\Inventories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -649,36 +632,18 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808151652425_init.resx">
-      <DependentUpon>201808151652425_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808161507563_notRequired.resx">
-      <DependentUpon>201808161507563_notRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808161621005_stylistsId.resx">
-      <DependentUpon>201808161621005_stylistsId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808161821491_updated.resx">
-      <DependentUpon>201808161821491_updated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808161848213_dateUpdated.resx">
-      <DependentUpon>201808161848213_dateUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808161855337_udatedForum.resx">
-      <DependentUpon>201808161855337_udatedForum.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808201350184_boolean add cutomers.resx">
-      <DependentUpon>201808201350184_boolean add cutomers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808202026376_updateappointents.resx">
-      <DependentUpon>201808202026376_updateappointents.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808211406048_init.resx">
+      <DependentUpon>201808211406048_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808211416214_Events.resx">
+      <DependentUpon>201808211416214_Events.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
