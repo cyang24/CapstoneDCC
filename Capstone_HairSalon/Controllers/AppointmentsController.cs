@@ -35,6 +35,7 @@ namespace Capstone_HairSalon.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(appointment);
         }
 
@@ -62,6 +63,7 @@ namespace Capstone_HairSalon.Controllers
             if (ModelState.IsValid)
             {
                 var stylists = db.Stylists.ToList();
+                var services = db.Services.ToList();
                 db.Appointments.Add(appointment);
                 db.SaveChanges();
                 TextAPIsController textAPIsController = new TextAPIsController();
@@ -93,7 +95,7 @@ namespace Capstone_HairSalon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Date,StylistId,TimeRequest,ConfirmAppointment,DenyAppointment")] Appointment appointment)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Date,StylistId,TimeRequest,ConfirmAppointment,DenyAppointment,ReminderText")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {

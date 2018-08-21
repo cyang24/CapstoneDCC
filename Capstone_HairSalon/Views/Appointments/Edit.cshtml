@@ -59,7 +59,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.ConfirmAppointment, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ConfirmAppointment, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.ConfirmAppointment, new { htmlAttributes = new { @class = "check-box" } })
             @Html.ValidationMessageFor(model => model.ConfirmAppointment, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -67,10 +67,32 @@
     <div class="form-group">
         @Html.LabelFor(model => model.DenyAppointment, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.DenyAppointment, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.DenyAppointment, new { htmlAttributes = new { @class = "check-box" } })
             @Html.ValidationMessageFor(model => model.DenyAppointment, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ReminderText, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ReminderText, new { htmlAttributes = new { @class = "check-box" } })
+            @Html.ValidationMessageFor(model => model.ReminderText, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+            <form action="/OrderItems/Charge" method="POST">
+                <article>
+                    <label>Amount: $5.00</label>
+                </article>
+                <script src="//checkout.stripe.com/v2/checkout.js"
+                        class="stripe-button"
+                        data-key="@ViewBag.StripePublishKey"
+                        data-locale="auto"
+                        data-description="Sample Charge"
+                        data-amount="500">
+                </script>
+            </form>
+        </div>*@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
@@ -78,12 +100,12 @@
         </div>
     </div>
 </div>
-}
+    }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

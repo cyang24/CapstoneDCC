@@ -57,8 +57,8 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
-    <Reference Include="Stripe.net, Version=17.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stripe.net.17.9.0\lib\net45\Stripe.net.dll</HintPath>
+    <Reference Include="Stripe.net, Version=17.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.17.10.0\lib\net45\Stripe.net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -239,6 +239,10 @@
     <Compile Include="Migrations\201808211416214_Events.cs" />
     <Compile Include="Migrations\201808211416214_Events.Designer.cs">
       <DependentUpon>201808211416214_Events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808211956241_notification.cs" />
+    <Compile Include="Migrations\201808211956241_notification.Designer.cs">
+      <DependentUpon>201808211956241_notification.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -621,6 +625,7 @@
     <Content Include="Views\Inventories\Details.cshtml" />
     <Content Include="Views\Inventories\Edit.cshtml" />
     <Content Include="Views\Inventories\Index.cshtml" />
+    <Content Include="Views\Shared\StripeIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -643,6 +648,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808211416214_Events.resx">
       <DependentUpon>201808211416214_Events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808211956241_notification.resx">
+      <DependentUpon>201808211956241_notification.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

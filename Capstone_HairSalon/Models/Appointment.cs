@@ -48,7 +48,7 @@ namespace Capstone_HairSalon.Models
             [Required]
             [Display(Name = "Accept Terms")]
             public bool Accept_Terms { get; set; }
-
-            
+            [Display(Name = "Reminder Text")]
+            public bool ReminderText { get; set; }   
     }
 }

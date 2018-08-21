@@ -43,7 +43,7 @@ namespace Capstone_HairSalon.Controllers
                 TwilioClient.Init(accountSid, authToken);
 
                 var message = MessageResource.Create(
-                    body: appointment.FirstName + " " + appointment.LastName +" Your appointment has been confirmed on " + appointment.Date +" at " + appointment.TimeRequest+ ".",
+                    body: appointment.FirstName + " " + appointment.LastName +" Your appointment has been confirmed on " + appointment.Date +" at " + appointment.TimeRequest + ".",
                     from: new Twilio.Types.PhoneNumber("+19203755309"),
                     to: new Twilio.Types.PhoneNumber(toPhoneNumber)
                 );
@@ -76,7 +76,23 @@ namespace Capstone_HairSalon.Controllers
                 TwilioClient.Init(accountSid, authToken);
 
                 var message = MessageResource.Create(
-                    body: "Hi "+ appointment.Stylist.FirstName + " an Appointment has been requested by " + appointment.FirstName + " " + appointment.LastName + " on " + appointment.Date + " at " + appointment.TimeRequest ,
+                    body: "Hi "+ appointment.Stylist.FirstName + " an Appointment has been requested by " + appointment.FirstName + " " + appointment.LastName + " on " + appointment.Date + " at " + appointment.TimeRequest + " for a " + appointment.Service.Name,
+                    from: new Twilio.Types.PhoneNumber("+19203755309"),
+                    to: new Twilio.Types.PhoneNumber("+19202424833")
+                );
+
+                Console.WriteLine(message.Sid);
+
+            }
+            else if (appointment.ReminderText == true)
+            {
+                const string accountSid = "AC8f17440345184e555b817781af4d94cb";
+                const string authToken = "66843904e1d2f4f6fb98a8c6b7173080";
+
+                TwilioClient.Init(accountSid, authToken);
+
+                var message = MessageResource.Create(
+                    body: "Hello " + appointment.FirstName + " " + appointment.LastName + " this is just a freindly reminder of your appointment scheduled for tommorow at " + appointment.Date + " at " + appointment.TimeRequest + ". Thank You."  ,
                     from: new Twilio.Types.PhoneNumber("+19203755309"),
                     to: new Twilio.Types.PhoneNumber("+19202424833")
                 );
@@ -85,6 +101,7 @@ namespace Capstone_HairSalon.Controllers
 
             }
         }
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)

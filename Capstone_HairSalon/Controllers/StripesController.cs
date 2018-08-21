@@ -19,13 +19,13 @@ namespace Capstone_HairSalon.Controllers
         // GET: Stripes
         public ActionResult Index()
         {
-            StripeConfiguration.SetApiKey("sk_test_CnNJ5zBRKKTfFb3NCSj6MGLf");
-            var stripePublishKey = "pk_test_qXVnowf9XbxuKvbKIq8a5UiG";
+            StripeConfiguration.SetApiKey("sk_test_IGQjMw0yYI0CtHTQQcjyq0yk");
+            var stripePublishKey = "pk_test_88RuAbuVAFajNdiid6qwOfdQ";
             ViewBag.StripePublishKey = stripePublishKey;
 
             return View();
         }
-        public ActionResult Charge(string stripeEmail, string stripeToken)
+        public ActionResult Charge(string stripeEmail, string stripeToken, int chargeTotal)
         {
             var customers = new StripeCustomerService();
             var charges = new StripeChargeService();
@@ -38,15 +38,18 @@ namespace Capstone_HairSalon.Controllers
 
             var charge = charges.Create(new StripeChargeCreateOptions
             {
-                Amount = 500,//charge in cents
+                Amount = chargeTotal,
                 Description = "Sample Charge",
                 Currency = "usd",
                 CustomerId = customer.Id
             });
 
-            // further application specific code goes here
+            return View();
+        }
 
-            return View("Charge");
+        public ActionResult Error()
+        {
+            return View();
         }
     }
 }
