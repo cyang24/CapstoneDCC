@@ -76,7 +76,7 @@ namespace Capstone_HairSalon.Controllers
                 TwilioClient.Init(accountSid, authToken);
 
                 var message = MessageResource.Create(
-                    body: "An Appointment has been requested by " + appointment.FirstName + " " + appointment.LastName + " on " + appointment.Date + " at " + appointment.TimeRequest ,
+                    body: "Hi "+ appointment.Stylist.FirstName + " an Appointment has been requested by " + appointment.FirstName + " " + appointment.LastName + " on " + appointment.Date + " at " + appointment.TimeRequest ,
                     from: new Twilio.Types.PhoneNumber("+19203755309"),
                     to: new Twilio.Types.PhoneNumber("+19202424833")
                 );

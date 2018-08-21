@@ -57,8 +57,12 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
+    <Reference Include="Stripe.net, Version=17.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.17.9.0\lib\net45\Stripe.net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
@@ -220,6 +224,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\StripesController.cs" />
     <Compile Include="Controllers\StylistsController.cs" />
     <Compile Include="Controllers\TextAPIsController.cs" />
     <Compile Include="Controllers\TextAPIsManager.cs" />
@@ -288,10 +293,13 @@
     <Content Include="Content\bun-girl-hairs-9634.jpg" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\shutterstock_1033157947.jpg" />
+    <Content Include="Content\shutterstock_1040432320 %281%29.jpg" />
     <Content Include="Content\shutterstock_144022057.jpg" />
     <Content Include="Content\shutterstock_220564633.jpg" />
     <Content Include="Content\shutterstock_295555664.jpg" />
     <Content Include="Content\shutterstock_485071654.jpg" />
+    <Content Include="Content\shutterstock_582834991.jpg" />
+    <Content Include="Content\shutterstock_604594544.jpg" />
     <Content Include="Content\shutterstock_639921919.jpg" />
     <Content Include="Content\shutterstock_670969639.jpg" />
     <Content Include="Content\shutterstock_730048504.jpg" />

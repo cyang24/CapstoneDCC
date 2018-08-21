@@ -42,9 +42,11 @@ namespace Capstone_HairSalon.Controllers
         public ActionResult Create()
         {
             var stylists = db.Stylists.ToList();
+            var services = db.Services.ToList();
             Appointment appointment = new Appointment()
             {
-                Stylists = stylists
+                Stylists = stylists,
+                Services = services
             };
             return View(appointment);
 
@@ -59,6 +61,7 @@ namespace Capstone_HairSalon.Controllers
         {
             if (ModelState.IsValid)
             {
+                var stylists = db.Stylists.ToList();
                 db.Appointments.Add(appointment);
                 db.SaveChanges();
                 TextAPIsController textAPIsController = new TextAPIsController();
