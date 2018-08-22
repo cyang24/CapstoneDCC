@@ -51,4 +51,20 @@
 
 <br />
 
-@Html.ActionLink("Checkout", "StripeIndex")
+<form action="/ServiceTotals/Charge" method="POST">
+    @*<article>
+        <label>Amount: $@ViewBag.TotalAmount</label>
+    </article>*@
+
+    <script src="//checkout.stripe.com/v2/checkout.js"
+            class="stripe-button"
+            data-key="@ViewBag.StripePublishKey"
+            data-locale="auto"
+            data-description="Sample Charge"
+            data-amount="@ViewBag.TotalAmount">
+    </script>
+</form>
+
+
+
+@*@Html.ActionLink("Checkout", "StripeIndex")*@

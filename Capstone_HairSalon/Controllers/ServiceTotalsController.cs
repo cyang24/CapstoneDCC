@@ -99,7 +99,12 @@ namespace Capstone_HairSalon.Controllers
                 ViewBag.TotalAmount = total;
             }
 
-            RedirectToAction("StripeIndex");
+
+            StripeConfiguration.SetApiKey("sk_test_IGQjMw0yYI0CtHTQQcjyq0yk");
+            var stripePublishKey = "pk_test_88RuAbuVAFajNdiid6qwOfdQ";
+            ViewBag.StripePublishKey = stripePublishKey;
+
+            //RedirectToAction("StripeIndex");
             return View(checkout);
         }
 
@@ -159,7 +164,7 @@ namespace Capstone_HairSalon.Controllers
             ServiceTotal serviceTotal = db.ServiceTotals.Find(id);
             db.ServiceTotals.Remove(serviceTotal);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("SingleIndex", "ServiceTotals");
         }
 
         protected override void Dispose(bool disposing)
@@ -171,15 +176,15 @@ namespace Capstone_HairSalon.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult StripeIndex()
-        {
-            StripeConfiguration.SetApiKey("sk_test_IGQjMw0yYI0CtHTQQcjyq0yk");
-            var stripePublishKey = "pk_test_88RuAbuVAFajNdiid6qwOfdQ";
-            ViewBag.StripePublishKey = stripePublishKey;
+        //public ActionResult StripeIndex()
+        //{
+        //    StripeConfiguration.SetApiKey("sk_test_IGQjMw0yYI0CtHTQQcjyq0yk");
+        //    var stripePublishKey = "pk_test_88RuAbuVAFajNdiid6qwOfdQ";
+        //    ViewBag.StripePublishKey = stripePublishKey;
 
-            return View();
-        }
-        public ActionResult Charge(string stripeEmail, string stripeToken, int customterTotal)
+        //    return View();
+        //}
+        public ActionResult Charge(string stripeEmail, string stripeToken)
         {
             var customers = new StripeCustomerService();
             var charges = new StripeChargeService();
@@ -192,7 +197,7 @@ namespace Capstone_HairSalon.Controllers
 
             var charge = charges.Create(new StripeChargeCreateOptions
             {
-                Amount = customterTotal,//charge in cents
+                Amount = 500,//charge in cents
                 Description = "Your Total",
                 Currency = "usd",
                 CustomerId = customer.Id
