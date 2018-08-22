@@ -28,8 +28,8 @@ namespace Capstone_HairSalon.Controllers
             //var stylist = db.Stylists.Where(c => c.UserId == userId).Select(c => c).FirstOrDefault();
             //var stylistname = stylist.FirstName;
 
-            //string toPhoneNumber = "+1" + appointment.PhoneNumber;
-            string toPhoneNumber = "+1" + "9202424833";
+            string toPhoneNumber = "+1" + appointment.PhoneNumber;
+            //string toPhoneNumber = "+1" + "9202424833";
             //string toStylistNumber = "+1" + stylist.Phone;
 
 

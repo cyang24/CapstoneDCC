@@ -37,9 +37,7 @@ namespace Capstone_HairSalon.Models
         public DbSet<Services> Services { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
-
-        public DbSet<Payment> Payments { get; set; }
-        public DbSet<ServiceTotal> serviceTotals { get; set; }
-
+        public DbSet<ServiceTotal> ServiceTotals { get; set; }
+        public DbSet<Checkout> Checkouts { get; set; }
     }
 }

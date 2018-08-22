@@ -68,7 +68,7 @@ namespace Capstone_HairSalon.Controllers
                 db.SaveChanges();
                 TextAPIsController textAPIsController = new TextAPIsController();
                 textAPIsController.SendText(appointment);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(appointment);

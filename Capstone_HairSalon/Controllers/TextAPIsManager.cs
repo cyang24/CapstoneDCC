@@ -16,8 +16,8 @@ namespace Capstone_HairSalon.Controllers
 
         public void SendText(Stylist stylist)
         {
-            string toPhoneNumber = "+1" + "9202424833";
-            //string toStylistNumber = "+1" + stylist.Phone;
+            //string toPhoneNumber = "+1" + "9202424833";
+            string toStylistNumber = "+1" + stylist.Phone;
 
             if (stylist.RentDue == true)
             {
@@ -29,7 +29,7 @@ namespace Capstone_HairSalon.Controllers
                 var message = MessageResource.Create(
                     body: "Just a friendly reminder that your rent is due soon " + stylist.FirstName + ".",
                     from: new Twilio.Types.PhoneNumber("+19203755309"),
-                    to: new Twilio.Types.PhoneNumber(toPhoneNumber)
+                    to: new Twilio.Types.PhoneNumber(toStylistNumber)
                 );
 
                 Console.WriteLine(message.Sid);

@@ -1,34 +1,33 @@
-﻿@model Capstone_HairSalon.Models.Services
+﻿@model Capstone_HairSalon.Models.Checkout
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 style="margin-top: 20px;"></h2>
 
 <div>
-    <h4>Services</h4>
+    <h4>Checkout Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Id)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Id)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.Total)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Price)
+            @Html.DisplayFor(model => model.Total)
         </dd>
-
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+

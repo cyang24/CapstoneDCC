@@ -220,11 +220,13 @@
     <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\AppointmentsController.cs" />
     <Compile Include="Controllers\BasicSchedulerController.cs" />
+    <Compile Include="Controllers\CheckoutsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventoriesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\ServiceTotalsController.cs" />
     <Compile Include="Controllers\StripesController.cs" />
     <Compile Include="Controllers\StylistsController.cs" />
     <Compile Include="Controllers\TextAPIsController.cs" />
@@ -232,44 +234,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808221236360_init.cs" />
-    <Compile Include="Migrations\201808221236360_init.Designer.cs">
-      <DependentUpon>201808221236360_init.cs</DependentUpon>
+    <Compile Include="Migrations\201808221536178_init.cs" />
+    <Compile Include="Migrations\201808221536178_init.Designer.cs">
+      <DependentUpon>201808221536178_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808221238191_scheduler.cs" />
-    <Compile Include="Migrations\201808221238191_scheduler.Designer.cs">
-      <DependentUpon>201808221238191_scheduler.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808221247055_PaymentsUpdated.cs" />
-    <Compile Include="Migrations\201808221247055_PaymentsUpdated.Designer.cs">
-      <DependentUpon>201808221247055_PaymentsUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808221258111_makeAdditional fees nullable.cs" />
-    <Compile Include="Migrations\201808221258111_makeAdditional fees nullable.Designer.cs">
-      <DependentUpon>201808221258111_makeAdditional fees nullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808221327380_paymen-controller.cs" />
-    <Compile Include="Migrations\201808221327380_paymen-controller.Designer.cs">
-      <DependentUpon>201808221327380_paymen-controller.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808221337220_paymentRedo.cs" />
-    <Compile Include="Migrations\201808221337220_paymentRedo.Designer.cs">
-      <DependentUpon>201808221337220_paymentRedo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808221342027_ServiceTotal.cs" />
-    <Compile Include="Migrations\201808221342027_ServiceTotal.Designer.cs">
-      <DependentUpon>201808221342027_ServiceTotal.cs</DependentUpon>
+    <Compile Include="Migrations\201808221655469_updaeted.cs" />
+    <Compile Include="Migrations\201808221655469_updaeted.Designer.cs">
+      <DependentUpon>201808221655469_updaeted.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\Checkout.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\ServiceTotal.cs" />
     <Compile Include="Models\SchedulerContext.cs" />
     <Compile Include="Models\Services.cs" />
@@ -647,10 +629,20 @@
     <Content Include="Views\Inventories\Edit.cshtml" />
     <Content Include="Views\Inventories\Index.cshtml" />
     <Content Include="Views\Shared\StripeIndex.cshtml" />
+    <Content Include="Views\ServiceTotals\Create.cshtml" />
+    <Content Include="Views\ServiceTotals\Delete.cshtml" />
+    <Content Include="Views\ServiceTotals\Details.cshtml" />
+    <Content Include="Views\ServiceTotals\Edit.cshtml" />
+    <Content Include="Views\ServiceTotals\Index.cshtml" />
+    <Content Include="Views\ServiceTotals\SingleIndex.cshtml" />
+    <Content Include="Views\Checkouts\Index.cshtml" />
+    <Content Include="Views\Checkouts\Create.cshtml" />
+    <Content Include="Views\Checkouts\Details.cshtml" />
+    <Content Include="Views\Checkouts\Edit.cshtml" />
+    <Content Include="Views\Checkouts\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\TextAPIsManager\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -664,26 +656,11 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808221236360_init.resx">
-      <DependentUpon>201808221236360_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808221536178_init.resx">
+      <DependentUpon>201808221536178_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221238191_scheduler.resx">
-      <DependentUpon>201808221238191_scheduler.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221247055_PaymentsUpdated.resx">
-      <DependentUpon>201808221247055_PaymentsUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221258111_makeAdditional fees nullable.resx">
-      <DependentUpon>201808221258111_makeAdditional fees nullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221327380_paymen-controller.resx">
-      <DependentUpon>201808221327380_paymen-controller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221337220_paymentRedo.resx">
-      <DependentUpon>201808221337220_paymentRedo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221342027_ServiceTotal.resx">
-      <DependentUpon>201808221342027_ServiceTotal.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808221655469_updaeted.resx">
+      <DependentUpon>201808221655469_updaeted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

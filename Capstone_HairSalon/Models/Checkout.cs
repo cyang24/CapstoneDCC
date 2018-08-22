@@ -7,11 +7,12 @@ using System.Web;
 
 namespace Capstone_HairSalon.Models
 {
-    public class Payment
+    public class Checkout
     {
         [Key]
-        [Display(Name = "Payment")]
+        [Display(Name = "Checkout")]
         public int Id { get; set; }
+        [Display(Name = "Total")]
         public int Total { get; set; }
 
         [ForeignKey("User")]

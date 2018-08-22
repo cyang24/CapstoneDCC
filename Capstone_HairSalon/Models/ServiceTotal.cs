@@ -18,9 +18,10 @@ namespace Capstone_HairSalon.Models
         public IEnumerable<Services> Services { get; set; }
 
 
-        [ForeignKey("PaymentId")]
-        public int? Payment_Id { get; set; }
-        public Payment PaymentId { get; set; }
+        [ForeignKey("Checkout")]
+        public int? CheckoutId { get; set; }
+        public Checkout Checkout { get; set; }
+
 
         [Display(Name = "Additional Fees")]
         public int? AdditionalFees { get; set; }
