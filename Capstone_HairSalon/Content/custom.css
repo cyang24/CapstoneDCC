@@ -26,6 +26,40 @@ a {
     border: 5px solid #8E8C84;
 }
 
+.service_img {
+    display: block;
+    width: 100px !important;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
+    opacity:.80;
+    /*border: 5px solid #8E8C84;*/
+}
+
+.service_text {
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    margin-top:20px;
+    
+}
+
+.service_copy {
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 65px;
+    width: 90%;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.service_price {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: slategrey;
+}
+
 .review_text {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
@@ -260,3 +294,4 @@ a {
             -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
             transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
         }
+

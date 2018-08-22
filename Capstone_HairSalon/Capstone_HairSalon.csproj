@@ -232,17 +232,33 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808211406048_init.cs" />
-    <Compile Include="Migrations\201808211406048_init.Designer.cs">
-      <DependentUpon>201808211406048_init.cs</DependentUpon>
+    <Compile Include="Migrations\201808221236360_init.cs" />
+    <Compile Include="Migrations\201808221236360_init.Designer.cs">
+      <DependentUpon>201808221236360_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808211416214_Events.cs" />
-    <Compile Include="Migrations\201808211416214_Events.Designer.cs">
-      <DependentUpon>201808211416214_Events.cs</DependentUpon>
+    <Compile Include="Migrations\201808221238191_scheduler.cs" />
+    <Compile Include="Migrations\201808221238191_scheduler.Designer.cs">
+      <DependentUpon>201808221238191_scheduler.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808211956241_notification.cs" />
-    <Compile Include="Migrations\201808211956241_notification.Designer.cs">
-      <DependentUpon>201808211956241_notification.cs</DependentUpon>
+    <Compile Include="Migrations\201808221247055_PaymentsUpdated.cs" />
+    <Compile Include="Migrations\201808221247055_PaymentsUpdated.Designer.cs">
+      <DependentUpon>201808221247055_PaymentsUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808221258111_makeAdditional fees nullable.cs" />
+    <Compile Include="Migrations\201808221258111_makeAdditional fees nullable.Designer.cs">
+      <DependentUpon>201808221258111_makeAdditional fees nullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808221327380_paymen-controller.cs" />
+    <Compile Include="Migrations\201808221327380_paymen-controller.Designer.cs">
+      <DependentUpon>201808221327380_paymen-controller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808221337220_paymentRedo.cs" />
+    <Compile Include="Migrations\201808221337220_paymentRedo.Designer.cs">
+      <DependentUpon>201808221337220_paymentRedo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808221342027_ServiceTotal.cs" />
+    <Compile Include="Migrations\201808221342027_ServiceTotal.Designer.cs">
+      <DependentUpon>201808221342027_ServiceTotal.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -253,6 +269,8 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\ServiceTotal.cs" />
     <Compile Include="Models\SchedulerContext.cs" />
     <Compile Include="Models\Services.cs" />
     <Compile Include="Models\Stylist.cs" />
@@ -274,8 +292,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bun-girl-hairs-9634.jpg" />
     <Content Include="Content\custom.css" />
+    <Content Include="Content\female-hair-shape-and-face-silhouette.svg" />
+    <Content Include="Content\hairdryer-silhouette-side-view.svg" />
+    <Content Include="Content\scissor-and-comb.svg" />
     <Content Include="Content\shutterstock_1033157947.jpg" />
-    <Content Include="Content\shutterstock_1040432320 %281%29.jpg" />
+    <Content Include="Content\shutterstock_1040432320.jpg" />
     <Content Include="Content\shutterstock_144022057.jpg" />
     <Content Include="Content\shutterstock_220564633.jpg" />
     <Content Include="Content\shutterstock_295555664.jpg" />
@@ -643,14 +664,26 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808211406048_init.resx">
-      <DependentUpon>201808211406048_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808221236360_init.resx">
+      <DependentUpon>201808221236360_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808211416214_Events.resx">
-      <DependentUpon>201808211416214_Events.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808221238191_scheduler.resx">
+      <DependentUpon>201808221238191_scheduler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808211956241_notification.resx">
-      <DependentUpon>201808211956241_notification.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808221247055_PaymentsUpdated.resx">
+      <DependentUpon>201808221247055_PaymentsUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808221258111_makeAdditional fees nullable.resx">
+      <DependentUpon>201808221258111_makeAdditional fees nullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808221327380_paymen-controller.resx">
+      <DependentUpon>201808221327380_paymen-controller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808221337220_paymentRedo.resx">
+      <DependentUpon>201808221337220_paymentRedo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808221342027_ServiceTotal.resx">
+      <DependentUpon>201808221342027_ServiceTotal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

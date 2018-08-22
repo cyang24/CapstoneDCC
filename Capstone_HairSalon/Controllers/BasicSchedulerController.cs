@@ -19,10 +19,12 @@ namespace Capstone_HairSalon.Controllers
         private SchedulerContext db = new SchedulerContext();
         public ActionResult Index()
         {
+
+
             var scheduler = new DHXScheduler(this);
             scheduler.Skin = DHXScheduler.Skins.Flat;
 
-            scheduler.Config.hour_date = "%g:%i %a";
+            scheduler.Config.hour_date = "%H:%i:%s";
             scheduler.Config.readonly_form = false;
             scheduler.Config.first_hour = 8;
             scheduler.Config.last_hour = 20;
