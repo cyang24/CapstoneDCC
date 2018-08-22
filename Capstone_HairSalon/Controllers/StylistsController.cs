@@ -36,6 +36,13 @@ namespace Capstone_HairSalon.Controllers
             return View(stylist);
         }
 
+        public ActionResult CustomStylistsIndex()
+        {
+            var thisUser = User.Identity.GetUserId();
+            var stylist = db.Stylists.Include(e => e.Checkout).Where(c => c.UserId == thisUser).ToList();
+            return View(stylist);
+        }
+
         // GET: Stylists/Create
         public ActionResult Create()
         {

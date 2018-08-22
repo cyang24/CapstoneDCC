@@ -242,6 +242,14 @@
     <Compile Include="Migrations\201808221655469_updaeted.Designer.cs">
       <DependentUpon>201808221655469_updaeted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808221825082_fkSTylist.cs" />
+    <Compile Include="Migrations\201808221825082_fkSTylist.Designer.cs">
+      <DependentUpon>201808221825082_fkSTylist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808221857110_intconversion.cs" />
+    <Compile Include="Migrations\201808221857110_intconversion.Designer.cs">
+      <DependentUpon>201808221857110_intconversion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -661,6 +669,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808221655469_updaeted.resx">
       <DependentUpon>201808221655469_updaeted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808221825082_fkSTylist.resx">
+      <DependentUpon>201808221825082_fkSTylist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808221857110_intconversion.resx">
+      <DependentUpon>201808221857110_intconversion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

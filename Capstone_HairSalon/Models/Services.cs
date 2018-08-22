@@ -16,6 +16,6 @@ namespace Capstone_HairSalon.Models
         public string Name { get; set; }
 
         [Display(Name = "Price")]
-        public decimal Price { get; set; }
+        public int Price { get; set; }
     }
 }

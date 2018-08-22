@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Capstone_HairSalon.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Capstone_HairSalon.Controllers
 {
@@ -48,17 +49,49 @@ namespace Capstone_HairSalon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ServiceId,AdditionalFees")] ServiceTotal serviceTotal)
+        public ActionResult Create([Bind(Include = "ServiceId,AdditionalFees")] ServiceTotal serviceTotal)
         {
+            var checkoutId = db.Checkouts.OrderByDescending(c => c.Id).FirstOrDefault();
+            checkoutId.UserId = User.Identity.GetUserId();
+            var result = db.Checkouts.OrderByDescending(c => c.Id).Select(c => c.Id).First();
+            serviceTotal.CheckoutId = result;
+
+
             if (ModelState.IsValid)
             {
                 db.ServiceTotals.Add(serviceTotal);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("SingleIndex");
             }
 
             ViewBag.ServiceId = new SelectList(db.Services, "Id", "Name", serviceTotal.ServiceId);
             return View(serviceTotal);
+        }
+
+        public ActionResult MakeNewCharge()
+        {
+            Checkout checkout = new Checkout();
+            db.Checkouts.Add(checkout);
+            db.SaveChanges();
+            return RedirectToAction("Create");
+        }
+        public ActionResult SingleIndex(string searchString)
+        {
+            var latestPayment = db.Checkouts.OrderByDescending(c => c.Id).FirstOrDefault();
+            var userId = User.Identity.GetUserId();
+            var checkout = db.ServiceTotals.Include(o => o.Service).Include(o => o.Checkout).Where(o => o.Checkout.UserId == userId && o.CheckoutId == latestPayment.Id).ToList();
+            var currentServicefees = db.ServiceTotals.OrderByDescending(c => c.Id).FirstOrDefault();
+
+            var total = 0;
+            foreach (var item in checkout)
+            {
+                total += item.Service.Price;
+            }
+            checkout.First().Checkout.Total = total;
+
+            ViewBag.TotalAmount = total + currentServicefees.AdditionalFees;
+
+            return View(checkout);
         }
 
         // GET: ServiceTotals/Edit/5
@@ -82,7 +115,7 @@ namespace Capstone_HairSalon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ServiceId,AdditionalFees")] ServiceTotal serviceTotal)
+        public ActionResult Edit([Bind(Include = "ServiceId,AdditionalFees")] ServiceTotal serviceTotal)
         {
             if (ModelState.IsValid)
             {

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Capstone_HairSalon.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Capstone_HairSalon.Controllers
 {
@@ -34,6 +35,16 @@ namespace Capstone_HairSalon.Controllers
             }
             return View(services);
         }
+
+
+
+        //public ActionResult MakeStylistPayment()
+        //{
+        //    Checkout checkout = new Checkout();
+        //    db.Checkouts.Add(checkout);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Create");
+        //}
 
         [Authorize(Roles = "Stylist, Admin")]
         // GET: Services/Create

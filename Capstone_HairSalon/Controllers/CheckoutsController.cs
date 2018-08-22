@@ -1,4 +1,5 @@
 ﻿using Capstone_HairSalon.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -35,8 +36,16 @@ namespace Capstone_HairSalon.Controllers
                 return View(checkout);
             }
 
-            // GET: ServiceTotals/Create
-            public ActionResult Create()
+            public ActionResult StylistCustomPayment()
+            {
+                var stylistId = User.Identity.GetUserId();
+                var stylist = db.Stylists.Where(e => e.UserId == stylistId).FirstOrDefault();
+                var checkout = db.Checkouts.Where(o => o.Id == stylist.CheckoutId);
+                return View(checkout);
+            }
+
+        // GET: ServiceTotals/Create
+        public ActionResult Create()
             {
                 ViewBag.CheckoutId = new SelectList(db.Checkouts, "Id", "Total");
                 return View();
