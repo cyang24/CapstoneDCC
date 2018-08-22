@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Capstone_HairSalon.Models;
 using Microsoft.AspNet.Identity;
+using Stripe;
 
 namespace Capstone_HairSalon.Controllers
 {
@@ -89,8 +90,16 @@ namespace Capstone_HairSalon.Controllers
             }
             checkout.First().Checkout.Total = total;
 
-            ViewBag.TotalAmount = total + currentServicefees.AdditionalFees;
+            if (currentServicefees.AdditionalFees != null)
+            {
+                ViewBag.TotalAmount = total + currentServicefees.AdditionalFees;
+            }
+            else
+            {
+                ViewBag.TotalAmount = total;
+            }
 
+            RedirectToAction("StripeIndex");
             return View(checkout);
         }
 
@@ -160,6 +169,36 @@ namespace Capstone_HairSalon.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult StripeIndex()
+        {
+            StripeConfiguration.SetApiKey("sk_test_IGQjMw0yYI0CtHTQQcjyq0yk");
+            var stripePublishKey = "pk_test_88RuAbuVAFajNdiid6qwOfdQ";
+            ViewBag.StripePublishKey = stripePublishKey;
+
+            return View();
+        }
+        public ActionResult Charge(string stripeEmail, string stripeToken, int customterTotal)
+        {
+            var customers = new StripeCustomerService();
+            var charges = new StripeChargeService();
+
+            var customer = customers.Create(new StripeCustomerCreateOptions
+            {
+                Email = stripeEmail,
+                SourceToken = stripeToken
+            });
+
+            var charge = charges.Create(new StripeChargeCreateOptions
+            {
+                Amount = customterTotal,//charge in cents
+                Description = "Your Total",
+                Currency = "usd",
+                CustomerId = customer.Id
+            });
+
+            return View();
         }
     }
 }

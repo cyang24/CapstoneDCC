@@ -1,0 +1,16 @@
+﻿@model Capstone_HairSalon.Models.ServiceTotal
+
+@{
+    ViewBag.Title = "Purchase";
+}
+
+<h3 style="margin-top:20px;">Please Confirm Your Order</h3>
+@using (Html.BeginForm("Index"))
+{
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Confirm Purchase" class="btn btn-default" />
+        </div>
+    </div>
+}
+

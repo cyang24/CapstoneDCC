@@ -636,7 +636,7 @@
     <Content Include="Views\Inventories\Details.cshtml" />
     <Content Include="Views\Inventories\Edit.cshtml" />
     <Content Include="Views\Inventories\Index.cshtml" />
-    <Content Include="Views\Shared\StripeIndex.cshtml" />
+    <Content Include="Views\ServiceTotals\StripeIndex.cshtml" />
     <Content Include="Views\ServiceTotals\Create.cshtml" />
     <Content Include="Views\ServiceTotals\Delete.cshtml" />
     <Content Include="Views\ServiceTotals\Details.cshtml" />
@@ -648,6 +648,7 @@
     <Content Include="Views\Checkouts\Details.cshtml" />
     <Content Include="Views\Checkouts\Edit.cshtml" />
     <Content Include="Views\Checkouts\Delete.cshtml" />
+    <Content Include="Views\ServiceTotals\Charge.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
