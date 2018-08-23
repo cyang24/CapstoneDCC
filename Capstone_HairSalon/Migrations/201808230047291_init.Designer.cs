@@ -7,13 +7,13 @@ namespace Capstone_HairSalon.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class fkSTylist : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(fkSTylist));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808221825082_fkSTylist"; }
+            get { return "201808230047291_init"; }
         }
         
         string IMigrationMetadata.Source

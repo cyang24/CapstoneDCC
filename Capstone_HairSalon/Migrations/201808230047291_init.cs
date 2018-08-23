@@ -108,7 +108,7 @@ namespace Capstone_HairSalon.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
-                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Price = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -124,10 +124,13 @@ namespace Capstone_HairSalon.Migrations
                         ZipCode = c.Int(nullable: false),
                         RentDue = c.Boolean(nullable: false),
                         UserId = c.String(maxLength: 128),
+                        CheckoutId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Checkouts", t => t.CheckoutId)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
-                .Index(t => t.UserId);
+                .Index(t => t.UserId)
+                .Index(t => t.CheckoutId);
             
             CreateTable(
                 "dbo.Checkouts",
@@ -172,6 +175,39 @@ namespace Capstone_HairSalon.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.RentFees",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        RentalFee = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.RentPayments",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Total = c.Int(nullable: false),
+                        UserId = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.RentTransactions",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        RentPaymentId = c.Int(),
+                        RentalFee = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.RentPayments", t => t.RentPaymentId)
+                .Index(t => t.RentPaymentId);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -187,11 +223,11 @@ namespace Capstone_HairSalon.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         ServiceId = c.Int(),
-                        CheckoutId = c.Int(nullable: false),
+                        CheckoutId = c.Int(),
                         AdditionalFees = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Checkouts", t => t.CheckoutId, cascadeDelete: true)
+                .ForeignKey("dbo.Checkouts", t => t.CheckoutId)
                 .ForeignKey("dbo.Services", t => t.ServiceId)
                 .Index(t => t.ServiceId)
                 .Index(t => t.CheckoutId);
@@ -203,11 +239,14 @@ namespace Capstone_HairSalon.Migrations
             DropForeignKey("dbo.ServiceTotals", "ServiceId", "dbo.Services");
             DropForeignKey("dbo.ServiceTotals", "CheckoutId", "dbo.Checkouts");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.RentTransactions", "RentPaymentId", "dbo.RentPayments");
+            DropForeignKey("dbo.RentPayments", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Customers", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Customers", "AppointmentId", "dbo.Appointments");
-            DropForeignKey("dbo.Checkouts", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Appointments", "StylistId", "dbo.Stylists");
             DropForeignKey("dbo.Stylists", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Stylists", "CheckoutId", "dbo.Checkouts");
+            DropForeignKey("dbo.Checkouts", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Appointments", "ServiceId", "dbo.Services");
             DropForeignKey("dbo.Admins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
@@ -216,9 +255,12 @@ namespace Capstone_HairSalon.Migrations
             DropIndex("dbo.ServiceTotals", new[] { "CheckoutId" });
             DropIndex("dbo.ServiceTotals", new[] { "ServiceId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.RentTransactions", new[] { "RentPaymentId" });
+            DropIndex("dbo.RentPayments", new[] { "UserId" });
             DropIndex("dbo.Customers", new[] { "AppointmentId" });
             DropIndex("dbo.Customers", new[] { "UserId" });
             DropIndex("dbo.Checkouts", new[] { "UserId" });
+            DropIndex("dbo.Stylists", new[] { "CheckoutId" });
             DropIndex("dbo.Stylists", new[] { "UserId" });
             DropIndex("dbo.Appointments", new[] { "ServiceId" });
             DropIndex("dbo.Appointments", new[] { "StylistId" });
@@ -230,6 +272,9 @@ namespace Capstone_HairSalon.Migrations
             DropIndex("dbo.Admins", new[] { "UserId" });
             DropTable("dbo.ServiceTotals");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.RentTransactions");
+            DropTable("dbo.RentPayments");
+            DropTable("dbo.RentFees");
             DropTable("dbo.Inventories");
             DropTable("dbo.Customers");
             DropTable("dbo.Checkouts");

@@ -1,133 +1,128 @@
-﻿using System;
+﻿using Capstone_HairSalon.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Capstone_HairSalon.Models;
-using Microsoft.AspNet.Identity;
 
 namespace Capstone_HairSalon.Controllers
 {
-    public class ServicesController : Controller
+    public class RentPaymentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Services
+        // GET: ServiceTotals
         public ActionResult Index()
         {
-            return View(db.Services.ToList());
+            //var serviceTotals = db.ServiceTotals.Include(s => s.Service);
+            return View(db.RentPayments.ToList());
         }
 
-        public ActionResult Services()
-        {
-            return View(db.Services.ToList());
-        }
-
-        // GET: Services/Details/5
+        // GET: ServiceTotals/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Services services = db.Services.Find(id);
-            if (services == null)
+            RentPayment rentPayment = db.RentPayments.Find(id);
+            if (rentPayment == null)
             {
                 return HttpNotFound();
             }
-            return View(services);
+            return View(rentPayment);
         }
 
-
-
-        //public ActionResult MakeStylistPayment()
+        //public ActionResult StylistCustomPayment()
         //{
-        //    Checkout checkout = new Checkout();
-        //    db.Checkouts.Add(checkout);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Create");
+        //    var stylistId = User.Identity.GetUserId();
+        //    var stylist = db.Stylists.Where(e => e.UserId == stylistId).FirstOrDefault();
+        //    var checkout = db.Checkouts.Where(o => o.Id == stylist.CheckoutId);
+        //    return View(checkout);
         //}
 
-        [Authorize(Roles = "Stylist, Admin")]
-        // GET: Services/Create
+        // GET: ServiceTotals/Create
         public ActionResult Create()
         {
+            ViewBag.RentPaymentId = new SelectList(db.RentPayments, "Id", "Total");
             return View();
         }
 
-        // POST: Services/Create
+        // POST: ServiceTotals/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Price")] Services services)
+        public ActionResult Create([Bind(Include = "Id,Total,UserId")] RentPayment rentPayment)
         {
             if (ModelState.IsValid)
             {
-                db.Services.Add(services);
+                db.RentPayments.Add(rentPayment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(services);
+            ViewBag.RentPaymentId = new SelectList(db.RentPayments, "Id", "Total", rentPayment.Id);
+            return View(rentPayment);
         }
-        [Authorize(Roles = "Stylist, Admin")]
-        // GET: Services/Edit/5
+
+        // GET: ServiceTotals/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Services services = db.Services.Find(id);
-            if (services == null)
+            RentPayment rentPayment = db.RentPayments.Find(id);
+            if (rentPayment == null)
             {
                 return HttpNotFound();
             }
-            return View(services);
+            ViewBag.RentPaymentId = new SelectList(db.RentPayments, "Id", "Total", rentPayment.Id);
+            return View(rentPayment);
         }
 
-        // POST: Services/Edit/5
+        // POST: ServiceTotals/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Price")] Services services)
+        public ActionResult Edit([Bind(Include = "Id,Total")] RentPayment rentPayment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(services).State = EntityState.Modified;
+                db.Entry(rentPayment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(services);
+            ViewBag.RentPaymentId = new SelectList(db.RentPayments, "Id", "Total", rentPayment.Id);
+            return View(rentPayment);
         }
-        [Authorize(Roles = "Stylist, Admin")]
-        // GET: Services/Delete/5
+
+        // GET: ServiceTotals/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Services services = db.Services.Find(id);
-            if (services == null)
+            RentPayment rentPayment = db.RentPayments.Find(id);
+            if (rentPayment == null)
             {
                 return HttpNotFound();
             }
-            return View(services);
+            return View(rentPayment);
         }
 
-        // POST: Services/Delete/5
+        // POST: ServiceTotals/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Services services = db.Services.Find(id);
-            db.Services.Remove(services);
+            RentPayment rentPayment = db.RentPayments.Find(id);
+            db.RentPayments.Remove(rentPayment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

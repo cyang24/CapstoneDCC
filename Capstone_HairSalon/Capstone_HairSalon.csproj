@@ -225,6 +225,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventoriesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RentPaymentController.cs" />
+    <Compile Include="Controllers\RentTransactionsController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\ServiceTotalsController.cs" />
     <Compile Include="Controllers\StripesController.cs" />
@@ -234,21 +236,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808221536178_init.cs" />
-    <Compile Include="Migrations\201808221536178_init.Designer.cs">
-      <DependentUpon>201808221536178_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808221655469_updaeted.cs" />
-    <Compile Include="Migrations\201808221655469_updaeted.Designer.cs">
-      <DependentUpon>201808221655469_updaeted.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808221825082_fkSTylist.cs" />
-    <Compile Include="Migrations\201808221825082_fkSTylist.Designer.cs">
-      <DependentUpon>201808221825082_fkSTylist.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808221857110_intconversion.cs" />
-    <Compile Include="Migrations\201808221857110_intconversion.Designer.cs">
-      <DependentUpon>201808221857110_intconversion.cs</DependentUpon>
+    <Compile Include="Migrations\201808230047291_init.cs" />
+    <Compile Include="Migrations\201808230047291_init.Designer.cs">
+      <DependentUpon>201808230047291_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -260,6 +250,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\RentFee.cs" />
+    <Compile Include="Models\RentPayment.cs" />
+    <Compile Include="Models\RentTransaction.cs" />
     <Compile Include="Models\ServiceTotal.cs" />
     <Compile Include="Models\SchedulerContext.cs" />
     <Compile Include="Models\Services.cs" />
@@ -649,6 +642,19 @@
     <Content Include="Views\Checkouts\Edit.cshtml" />
     <Content Include="Views\Checkouts\Delete.cshtml" />
     <Content Include="Views\ServiceTotals\Charge.cshtml" />
+    <Content Include="Views\RentTransactions\Create.cshtml" />
+    <Content Include="Views\RentTransactions\Delete.cshtml" />
+    <Content Include="Views\RentTransactions\Details.cshtml" />
+    <Content Include="Views\RentTransactions\Edit.cshtml" />
+    <Content Include="Views\RentTransactions\Index.cshtml" />
+    <Content Include="Views\RentTransactions\SingleIndex.cshtml" />
+    <Content Include="Views\RentTransactions\Charge.cshtml" />
+    <Content Include="Views\RentPayment\Create.cshtml" />
+    <Content Include="Views\RentPayment\Delete.cshtml" />
+    <Content Include="Views\RentPayment\Details.cshtml" />
+    <Content Include="Views\RentPayment\Edit.cshtml" />
+    <Content Include="Views\RentPayment\Index.cshtml" />
+    <Content Include="Views\Services\Services.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -665,17 +671,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808221536178_init.resx">
-      <DependentUpon>201808221536178_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221655469_updaeted.resx">
-      <DependentUpon>201808221655469_updaeted.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221825082_fkSTylist.resx">
-      <DependentUpon>201808221825082_fkSTylist.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221857110_intconversion.resx">
-      <DependentUpon>201808221857110_intconversion.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808230047291_init.resx">
+      <DependentUpon>201808230047291_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

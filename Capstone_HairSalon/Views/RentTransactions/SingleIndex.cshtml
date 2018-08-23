@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Capstone_HairSalon.Models.RentTransaction>
+
+@{
+    /**/
+
+    ViewBag.Title = "SingleIndex";
+}
+
+<h2 style="margin-top: 20px;">Service Charge</h2>
+
+<p>
+    @Html.ActionLink("Add item", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.RentPayment.UserId)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.RentalFee)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Service.Name)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.RentalFee)
+            </td>
+            <td>
+                @Html.ActionLink("Remove", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+
+<h4>Total Rent:</h4>
+<h1>$@ViewBag.TotalAmount</h1>
+
+
+<br />
+
+<form action="/RentTransactions/Charge" method="POST">
+    @*<article>
+            <label>Amount: $@ViewBag.TotalAmount</label>
+        </article>*@
+
+    <script src="//checkout.stripe.com/v2/checkout.js"
+            class="stripe-button"
+            data-key="@ViewBag.StripePublishKey"
+            data-locale="auto"
+            data-description="Sample Charge"
+            data-amount="@ViewBag.TotalAmount">
+    </script>
+</form>
+
+
+
+@*@Html.ActionLink("Checkout", "StripeIndex")*@
