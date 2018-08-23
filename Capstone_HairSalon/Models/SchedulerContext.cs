@@ -6,9 +6,9 @@ using System.Web;
 
 namespace Capstone_HairSalon.Models
 {
-    public partial class SchedulerContext : DbContext
+    public partial class SchedulerContext /*: DbContext*/
     {
-        public SchedulerContext() : base("DefaultConnection") { }
-        public virtual DbSet<Event> Events { get; set; }
+        //public SchedulerContext() : base("DefaultConnection") { }
+        //public virtual DbSet<Event> Events { get; set; }
     }
 }

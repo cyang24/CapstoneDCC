@@ -54,7 +54,7 @@ namespace Capstone_HairSalon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Phone,Address,ZipCode")] Stylist stylist)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Phone,Address,ZipCode,UserId")] Stylist stylist)
         {
             if (ModelState.IsValid)
             {

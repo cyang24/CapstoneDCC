@@ -9,23 +9,24 @@ using DHTMLX.Common;
 using DHTMLX.Scheduler;
 using DHTMLX.Scheduler.Data;
 using System.Data;
-
+using Microsoft.AspNet.Identity;
 
 namespace Capstone_HairSalon.Controllers
 {
     
     public class BasicSchedulerController : Controller
     {
-        private SchedulerContext db = new SchedulerContext();
-        public ActionResult Index()
+        ApplicationDbContext db = new ApplicationDbContext();
+        public ActionResult Index(int? id)
         {
-
 
             var scheduler = new DHXScheduler(this);
             scheduler.Skin = DHXScheduler.Skins.Flat;
 
-            scheduler.Config.hour_date = "%H:%i:%s";
-            scheduler.Config.readonly_form = false;
+            
+            
+
+            scheduler.Config.hour_date = "%H:%i %A";
             scheduler.Config.first_hour = 8;
             scheduler.Config.last_hour = 20;
 
@@ -33,22 +34,31 @@ namespace Capstone_HairSalon.Controllers
             scheduler.EnableDataprocessor = true;
 
 
-
             return View(scheduler);
         }
 
 
-        [Authorize(Roles = "Stylist, Admin")]
-        public ContentResult Data()
+        //[Authorize(Roles = "Stylist, Admin")]
+        public ContentResult Data(int? id)
         {
-            var apps = db.Events.ToList();
-            return new SchedulerAjaxData(apps);
+            var thisEvent = from s in db.Events
+                                  select s;
+
+            var stylists = db.Stylists.ToList();
+            string currentUser = User.Identity.GetUserId();
+            var stylistInfo = db.Stylists.Where(c => c.UserId == currentUser).FirstOrDefault();
+            var myEvent = thisEvent.Where(e => e.Stylist.UserId == stylistInfo.UserId);
+
+            return new SchedulerAjaxData(myEvent.ToList());
         }
 
         [Authorize(Roles = "Stylist, Admin")]
         public ContentResult Save(int? id, FormCollection actionValues)
         {
             var action = new DataAction(actionValues);
+            var stylists = db.Stylists.ToList();
+            string currentUser = User.Identity.GetUserId();
+            var stylistInfo = db.Stylists.Where(c => c.UserId.Equals(currentUser)).FirstOrDefault();
 
             try
             {
@@ -56,6 +66,7 @@ namespace Capstone_HairSalon.Controllers
                 switch (action.Type)
                 {
                     case DataActionTypes.Insert:
+                        changedEvent.StylistId = stylistInfo.Id;
                         db.Events.Add(changedEvent);
                         break;
                     case DataActionTypes.Delete:

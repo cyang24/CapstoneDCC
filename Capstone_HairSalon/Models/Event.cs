@@ -25,8 +25,10 @@ namespace Capstone_HairSalon.Models
         [DHXJson(Alias = "end_date")]
         public DateTime End_date { get; set; }
 
-        //public bool @readonly { get; set; }
-
-
+        [ForeignKey("Stylist")]
+        [Display(Name = "Stylist Name")]
+        public int? StylistId { get; set; }
+        public Stylist Stylist { get; set; }
+        public IEnumerable<Stylist> Stylists { get; set; }
     }
 }

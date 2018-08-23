@@ -244,6 +244,18 @@
     <Compile Include="Migrations\201808230443121_events.Designer.cs">
       <DependentUpon>201808230443121_events.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808231304381_fkadditio.cs" />
+    <Compile Include="Migrations\201808231304381_fkadditio.Designer.cs">
+      <DependentUpon>201808231304381_fkadditio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808231356282_eventchanges.cs" />
+    <Compile Include="Migrations\201808231356282_eventchanges.Designer.cs">
+      <DependentUpon>201808231356282_eventchanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808231359355_events added.cs" />
+    <Compile Include="Migrations\201808231359355_events added.Designer.cs">
+      <DependentUpon>201808231359355_events added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -685,6 +697,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808230443121_events.resx">
       <DependentUpon>201808230443121_events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808231304381_fkadditio.resx">
+      <DependentUpon>201808231304381_fkadditio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808231356282_eventchanges.resx">
+      <DependentUpon>201808231356282_eventchanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808231359355_events added.resx">
+      <DependentUpon>201808231359355_events added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -42,5 +42,6 @@ namespace Capstone_HairSalon.Models
         public DbSet<RentFee> RentFees { get; set; }
         public DbSet<RentPayment> RentPayments { get; set; }
         public DbSet<RentTransaction> RentTransactions { get; set; }
+        public virtual DbSet<Event> Events { get; set; }
     }
 }
