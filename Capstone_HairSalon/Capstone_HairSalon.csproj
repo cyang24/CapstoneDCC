@@ -236,9 +236,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808230047291_init.cs" />
-    <Compile Include="Migrations\201808230047291_init.Designer.cs">
-      <DependentUpon>201808230047291_init.cs</DependentUpon>
+    <Compile Include="Migrations\201808230442159_init.cs" />
+    <Compile Include="Migrations\201808230442159_init.Designer.cs">
+      <DependentUpon>201808230442159_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808230443121_events.cs" />
+    <Compile Include="Migrations\201808230443121_events.Designer.cs">
+      <DependentUpon>201808230443121_events.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -280,10 +284,12 @@
     <Content Include="Content\scissor-and-comb.svg" />
     <Content Include="Content\shutterstock_1033157947.jpg" />
     <Content Include="Content\shutterstock_1040432320.jpg" />
+    <Content Include="Content\shutterstock_1158042904.jpg" />
     <Content Include="Content\shutterstock_144022057.jpg" />
     <Content Include="Content\shutterstock_220564633.jpg" />
     <Content Include="Content\shutterstock_295555664.jpg" />
     <Content Include="Content\shutterstock_485071654.jpg" />
+    <Content Include="Content\shutterstock_561605737.jpg" />
     <Content Include="Content\shutterstock_582834991.jpg" />
     <Content Include="Content\shutterstock_604594544.jpg" />
     <Content Include="Content\shutterstock_639921919.jpg" />
@@ -655,6 +661,9 @@
     <Content Include="Views\RentPayment\Edit.cshtml" />
     <Content Include="Views\RentPayment\Index.cshtml" />
     <Content Include="Views\Services\Services.cshtml" />
+    <Content Include="Views\Appointments\SingleIndex.cshtml" />
+    <Content Include="Views\Appointments\SingleIndexCustomer.cshtml" />
+    <Content Include="Views\Appointments\ThankYou.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -671,8 +680,11 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808230047291_init.resx">
-      <DependentUpon>201808230047291_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808230442159_init.resx">
+      <DependentUpon>201808230442159_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808230443121_events.resx">
+      <DependentUpon>201808230443121_events.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<Capstone_HairSalon.Models.Appointment>
 
-@{
-    ViewBag.Title = "Index";
-}
 
 <h2 style="margin-top: 20px;">Appointments</h2>
-
 <p>
-    @Html.ActionLink("Your Appointments", "SingleIndex")
+    @Html.ActionLink("All Appoinments", "Index")
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -23,9 +20,9 @@
         <th>
             @Html.DisplayNameFor(model => model.TimeRequest)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Stylist.FirstName)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -37,15 +34,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.LastName)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TimeRequest)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Stylist.FirstName)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
             @Html.ActionLink("Details", "Details", new { id = item.Id }) |

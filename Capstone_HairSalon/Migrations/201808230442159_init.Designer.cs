@@ -13,7 +13,7 @@ namespace Capstone_HairSalon.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201808230047291_init"; }
+            get { return "201808230442159_init"; }
         }
         
         string IMigrationMetadata.Source

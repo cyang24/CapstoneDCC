@@ -86,7 +86,7 @@ namespace Capstone_HairSalon.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         FirstName = c.String(nullable: false),
                         LastName = c.String(nullable: false),
-                        PhoneNumber = c.String(nullable: false),
+                        Phone = c.String(nullable: false),
                         Date = c.String(nullable: false),
                         StylistId = c.Int(),
                         ServiceId = c.Int(),

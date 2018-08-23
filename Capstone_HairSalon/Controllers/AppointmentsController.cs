@@ -18,9 +18,61 @@ namespace Capstone_HairSalon.Controllers
         // GET: Appointments
         public ActionResult Index(int? id)
         {
-
-            //return View(db.Appointments.Include(p => p.Stylist).Where(m => m.Id == id).ToList());
+            var stylists = db.Stylists.ToList();
+            var services = db.Services.ToList();
+            Appointment appointment = new Appointment()
+            {
+                Stylists = stylists,
+                Services = services
+            };
             return View(db.Appointments.ToList());
+        }
+
+        public ActionResult SingleIndex(int? id)
+        {
+            var stylists = db.Stylists.ToList();
+            var services = db.Services.ToList();
+            Appointment appointment = new Appointment()
+            {
+                Stylists = stylists,
+                Services = services
+            };
+
+            var appointmentList = from s in db.Appointments
+                               select s;
+
+            string currentUser = User.Identity.GetUserId();
+            var stylistInfo = db.Stylists.Where(c => c.UserId.Equals(currentUser)).FirstOrDefault();
+            string stylistsName = stylistInfo.FirstName;
+            appointmentList = appointmentList.Where(s => s.Stylist.FirstName == stylistsName);
+
+            return View(appointmentList.ToList());
+        }
+
+        public ActionResult SingleIndexCustomer(int? id)
+        {
+            var stylists = db.Stylists.ToList();
+            var services = db.Services.ToList();
+            Appointment appointment = new Appointment()
+            {
+                Stylists = stylists,
+                Services = services
+            };
+
+            var appointmentList = from s in db.Appointments
+                                  select s;
+
+            string currentUser = User.Identity.GetUserId();
+            var customerInfo = db.Customers.Where(c => c.UserId.Equals(currentUser)).FirstOrDefault();
+            string customerPhone = customerInfo.Phone;
+            appointmentList = appointmentList.Where(s => s.Phone == customerPhone);
+
+            return View(appointmentList.ToList());
+        }
+
+        public ActionResult ThankYou()
+        {
+            return View();
         }
 
         // GET: Appointments/Details/5
@@ -58,7 +110,7 @@ namespace Capstone_HairSalon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Date,StylistId,ServiceId,TimeRequest,Accept_Terms")] Appointment appointment)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Phone,Date,StylistId,ServiceId,TimeRequest,Accept_Terms")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +120,7 @@ namespace Capstone_HairSalon.Controllers
                 db.SaveChanges();
                 TextAPIsController textAPIsController = new TextAPIsController();
                 textAPIsController.SendText(appointment);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("ThankYou");
             }
 
             return View(appointment);

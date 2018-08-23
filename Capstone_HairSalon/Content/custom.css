@@ -6,21 +6,40 @@ a {
 }
 
 
-.hero-image {
+.hero-image_Request {
     margin-top: 50px;
     margin-bottom:100px;
     height: 400px;
     width:60%;
-    background: black url('beautiful-body-casual-594365.jpg') no-repeat center 30%;
+    background: black url('shutterstock_295555664.jpg') no-repeat center 30%;
+    background-size: cover;
+    position: relative
+}
+
+.hero-image_Rent {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    height: 400px;
+    width: 60%;
+    background: black url('shutterstock_1158042904.jpg') no-repeat center 30%;
+    background-size: cover;
+    position: relative
+}
+
+.hero-image3_Service {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    height: 400px;
+    width: 60%;
+    background: black url('shutterstock_561605737.jpg') no-repeat center 30%;
     background-size: cover;
     position: relative
 }
 
 .hero-text {
     text-align: center;
-    vertical-align:middle;
-    font-family: 'Work Sans', sans-serif;
-    font-size: 36px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 40px;
     /*margin-top: 20px;*/
 }
 .landing_img_circle {

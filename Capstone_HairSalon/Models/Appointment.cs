@@ -18,7 +18,7 @@ namespace Capstone_HairSalon.Models
             public string LastName { get; set; }
 
             [Required, Phone, Display(Name = "Phone number")]
-            public string PhoneNumber { get; set; }
+            public string Phone { get; set; }
 
             [Required]
             [Display(Name = "Appointment Date")]

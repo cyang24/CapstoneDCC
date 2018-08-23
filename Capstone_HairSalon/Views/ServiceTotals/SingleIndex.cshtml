@@ -61,7 +61,7 @@
             data-key="@ViewBag.StripePublishKey"
             data-locale="auto"
             data-description="Sample Charge"
-            data-amount="@ViewBag.TotalAmount">
+            data-amount="@(ViewBag.TotalAmount * 100)">
     </script>
 </form>
 
